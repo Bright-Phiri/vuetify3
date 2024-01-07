@@ -5,6 +5,11 @@
       <v-list class="mt-2" nav>
         <v-list-item v-for="link in links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
       </v-list>
+      <template v-slot:append>
+        <v-list class="mb-4" nav>
+        <v-list-item v-for="link in sys_links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
+      </v-list>
+      </template>
     </v-navigation-drawer>
 
     <v-app-bar elevation="1">
@@ -35,7 +40,11 @@ const links = [
   { title: "Returns", icon: "mdi-undo", route: "/returns" },
   { title: "Refunds", icon: "mdi-cash-refund", route: "/refunds" },
   { title: "Users", icon: "mdi-account-multiple", route: "/employees" },
-  { title: "Settings", icon: "mdi-cog", route: "/about" },
+]
+
+const sys_links = [
+  { title: "Settings", icon: "mdi-cog", route: "/settings" },
+  { title: "Logout", icon: "mdi-logout-variant", route: "/logout" },
 ]
 
 const theme = useTheme()
