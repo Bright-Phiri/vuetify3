@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <v-container>
+    <v-container fluid>
       <v-row>
         <v-col cols="12">
           <v-card>
             <v-card-title>Users</v-card-title>
             <v-card-text>
-              
+
             </v-card-text>
           </v-card>
         </v-col>
