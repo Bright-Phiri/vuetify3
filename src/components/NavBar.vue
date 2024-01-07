@@ -15,14 +15,16 @@
     <v-app-bar elevation="1">
       <v-app-bar-nav-icon v-on:click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Application</v-app-bar-title>
+      <v-app-bar-title>Think</v-app-bar-title>
       <template v-slot:append>
         <v-btn icon="mdi-brightness-4" v-on:click="toggleTheme"></v-btn>
         <v-icon icon="mdi-account" class="ml-2" />
         <p class="mx-3">Bright Issah</p>
       </template>
     </v-app-bar>
-    <router-view/>
+    <Transition name="slide-fade">
+      <router-view/>
+    </Transition>
    </div>
 </template>
 
@@ -53,3 +55,20 @@ function toggleTheme () {
   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
 }
 </script>
+
+
+<style scoped>
+ .slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+</style>
