@@ -1,7 +1,7 @@
 <template>
    <div class="NavBar">
-    <v-navigation-drawer v-model="drawer">
-      <v-img class="mt-2" src="../images/logo.jpg" height="60"></v-img>
+    <v-navigation-drawer :width="282" v-model="drawer">
+      <v-img class="mt-2" src="../images/logo.png" height="60"></v-img>
       <v-list class="mt-2" nav>
         <v-list-item v-for="link in links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
       </v-list>
@@ -17,9 +17,9 @@
 
       <v-app-bar-title>Application</v-app-bar-title>
       <template v-slot:append>
-        <v-btn icon="mdi-brightness-4" @click="toggleTheme"></v-btn>
-        <v-icon icon="mdi-account" />
-        <p>Bright Issah</p>
+        <v-btn icon="mdi-brightness-4" v-on:click="toggleTheme"></v-btn>
+        <v-icon icon="mdi-account" class="ml-2" />
+        <p class="mx-3">Bright Issah</p>
       </template>
     </v-app-bar>
     <router-view/>
