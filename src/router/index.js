@@ -54,6 +54,14 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import("../views/LoginView.vue")
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    beforeEnter(to, from, next) {
+      store.commit("setToken", null);
+      next({ name: "login" });
+    },
   }
   
 ]

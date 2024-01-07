@@ -12,7 +12,7 @@
                     <v-text-field label="search" density="compact" variant="outlined" append-inner-icon="mdi-magnify" v-model="search"></v-text-field>
                   </v-col>
                </div>
-               <v-data-table class="elevation-1" hover :headers="headers" :items="users" :search="search"></v-data-table>
+               <v-data-table class="elevation-1" hover :headers="headers" :items="users" loading loading-text="fetching users" :search="search"></v-data-table>
             </v-card-text>
           </v-card>
         </v-col>
