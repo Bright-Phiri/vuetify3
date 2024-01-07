@@ -1,7 +1,7 @@
 <template>
    <div class="NavBar">
     <v-navigation-drawer :width="282" v-model="drawer">
-      <v-img class="mt-2" src="../images/logo.png" height="60"></v-img>
+      <v-img class="mt-2" src="../images/logo.png" height="55"></v-img>
       <v-list class="mt-2" nav>
         <v-list-item v-for="link in links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
       </v-list>
