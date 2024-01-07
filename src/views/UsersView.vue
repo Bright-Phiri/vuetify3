@@ -4,9 +4,15 @@
       <v-row>
         <v-col cols="12">
           <v-card>
-            <v-card-title>Users</v-card-title>
+            <v-card-title class="d-flex justify-space-between">Users <v-btn prepend-icon="mdi-plus" variant="flat" color="primary">New User</v-btn></v-card-title>
             <v-card-text>
-
+               <div class="d-flex justify-end">
+                  <v-btn icon="mdi-refresh" color="blue" size="small" variant="tonal" class="mt-3 mr-3"></v-btn>
+                  <v-col cols="2" class="px-0">
+                    <v-text-field label="search" density="compact" variant="outlined" append-inner-icon="mdi-magnify" v-model="search"></v-text-field>
+                  </v-col>
+               </div>
+               <v-data-table class="elevation-1" hover :headers="headers" :items="users" :search="search"></v-data-table>
             </v-card-text>
           </v-card>
         </v-col>
@@ -16,4 +22,25 @@
 </template>
 
 <script setup>
+import { ref, reactive, onMounted} from 'vue';
+const headers = [
+  {
+    title: 'Id',
+    align: 'start',
+    sortable: false,
+    key: 'id',
+  },
+  { title: 'First Name', key: 'first_name', align: 'end' },
+  { title: 'Last Name', key: 'last_name', align: 'end' },
+  { title: 'Username', key: 'username', align: 'end' },
+  { title: 'Email Address', key: 'email', align: 'end' },
+  { title: 'Phone Number', key: 'phone', align: 'end' },
+  { title: 'Actions', key: 'actions', align: 'end' },
+]
+const search = ref('')
+const users = reactive([])
+
+onMounted(()=> {
+  users.push({id: 1, first_name: 'Bright', last_name: 'Issah', username: 'bissah', email: 'bissah@mra.mw', phone: '+265993498492'})
+})
 </script>
