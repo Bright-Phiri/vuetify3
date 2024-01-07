@@ -11,6 +11,41 @@ const routes = [
         path: "",
         name: "dashboard",
         component: () => import("../views/HomeView.vue")
+      },
+      {
+        path: "/users",
+        name: "users",
+        component: () => import("../views/UsersView.vue")
+      },
+      {
+        path: "/categories",
+        name: "categories",
+        component: () => import("../views/CategoriesView.vue")
+      },
+      {
+        path: "/inventory",
+        name: "inventory",
+        component: () => import("../views/InventoryView.vue")
+      },
+      {
+        path: "/items",
+        name: "items",
+        component: () => import("../views/ItemsView.vue")
+      },
+      {
+        path: "/refunds",
+        name: "refunds",
+        component: () => import("../views/RefundsView.vue")
+      },
+      {
+        path: "/orders",
+        name: "orders",
+        component: () => import("../views/TransactionsView.vue")
+      },
+      {
+        path: "/users",
+        name: "users",
+        component: () => import("../views/UsersView.vue")
       }
     ]
   },

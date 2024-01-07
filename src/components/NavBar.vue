@@ -39,7 +39,7 @@ const links = [
   { title: "Transactions", icon: "mdi-cash-multiple", route: "/orders" },
   { title: "Returns", icon: "mdi-undo", route: "/returns" },
   { title: "Refunds", icon: "mdi-cash-refund", route: "/refunds" },
-  { title: "Users", icon: "mdi-account-multiple", route: "/employees" },
+  { title: "Users", icon: "mdi-account-multiple", route: "/users" },
 ]
 
 const sys_links = [
