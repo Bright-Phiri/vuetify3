@@ -2,7 +2,7 @@
   <div class="home">
     <v-container fluid>
       <v-row>
-        <v-col cols="12">
+        <v-col cols="12" class="px-0">
           <v-card>
             <v-card-title>Items</v-card-title>
             <v-card-text>

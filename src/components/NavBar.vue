@@ -6,7 +6,7 @@
         <v-list-item v-for="link in links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
       </v-list>
       <template v-slot:append>
-        <v-list class="mb-4" nav>
+        <v-list class="mb-1" nav>
         <v-list-item v-for="link in sys_links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
       </v-list>
       </template>

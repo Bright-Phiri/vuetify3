@@ -2,13 +2,13 @@
   <div class="home">
     <v-container fluid>
       <v-row>
-        <v-col cols="12">
+        <v-col cols="12" class="px-0">
           <v-card>
             <v-card-title class="d-flex justify-space-between">Users <v-btn prepend-icon="mdi-plus" variant="flat" color="primary">New User</v-btn></v-card-title>
             <v-card-text>
                <div class="d-flex justify-end">
                   <v-btn icon="mdi-refresh" color="blue" size="small" variant="tonal" class="mt-3 mr-3"></v-btn>
-                  <v-col cols="2" class="px-0">
+                  <v-col cols="3" class="px-0">
                     <v-text-field label="search" density="compact" variant="outlined" append-inner-icon="mdi-magnify" v-model="search"></v-text-field>
                   </v-col>
                </div>
