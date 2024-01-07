@@ -19,6 +19,7 @@
         placeholder="Email address"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
+        v-model="user.username"
       ></v-text-field>
 
       <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
@@ -40,6 +41,7 @@
         placeholder="Enter your password"
         prepend-inner-icon="mdi-lock-outline"
         variant="outlined"
+        v-model="user.password"
         @click:append-inner="visible = !visible"
       ></v-text-field>
 
@@ -59,6 +61,7 @@
         color="blue"
         size="large"
         variant="tonal"
+        v-on:click="userLogin"
       >
         Log In
       </v-btn>
@@ -77,7 +80,23 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive} from 'vue';
+import store from "../store/index";
+import router from "../router";
+
 const visible = ref(false)
+const user = reactive({
+  username: null,
+  password: null
+})
+
+const userLogin = async ()=>{
+  if (!user.username || !user.password) {
+    alert("Please enter all required fields");
+    return;
+  }
+  store.commit('setToken','yourSecretKey')
+  router.push({ path: '/' })
+}
 </script>
 
