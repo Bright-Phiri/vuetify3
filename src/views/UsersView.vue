@@ -5,7 +5,7 @@
         <v-col cols="12" class="px-0">
           <div class="d-flex justify-space-between">
             <h3 class="text-h4">Users</h3> 
-            <v-btn prepend-icon="mdi-plus" variant="flat" color="primary">New User</v-btn>
+            <v-btn prepend-icon="mdi-account-plus" variant="flat" color="primary">New User</v-btn>
           </div>
           <div class="d-flex justify-end">
             <v-btn icon="mdi-refresh" color="blue" size="small" variant="tonal" class="mt-3 mr-3"></v-btn>

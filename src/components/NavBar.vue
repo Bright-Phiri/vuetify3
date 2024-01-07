@@ -17,7 +17,7 @@
 
       <v-app-bar-title>Think</v-app-bar-title>
       <template v-slot:append>
-        <v-btn icon="mdi-brightness-4" v-on:click="toggleTheme"></v-btn>
+        <v-btn color="black" icon="mdi-brightness-4" variant="tonal" v-on:click="toggleTheme"></v-btn>
         <v-icon icon="mdi-account" class="ml-2" />
         <p class="mx-3">Bright Issah</p>
       </template>
