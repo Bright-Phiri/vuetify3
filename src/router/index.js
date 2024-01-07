@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import NavBar from '@/components/NavBar.vue'
+import store from "../store";
 
 const routes = [
   {
@@ -47,8 +48,13 @@ const routes = [
         name: "users",
         component: () => import("../views/UsersView.vue")
       }
-    ]
+    ],
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import("../views/LoginView.vue")
+  }
   
 ]
 
@@ -56,5 +62,18 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+// Global navigation guard
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = store.state.isUserLoggedIn;
+
+  if (to.name !== 'login' && !isAuthenticated) {
+    // Redirect to the login page if not authenticated
+    next({ name: 'login' });
+  } else {
+    // Continue with the navigation
+    next();
+  }
+});
 
 export default router
