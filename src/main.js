@@ -15,6 +15,7 @@ const vuetify = createVuetify({
   directives,
   defaults: {
     // VBtn: { variant: 'flat', color: 'red' }
+    VTextField: { color: 'primary' }
   }
 })
 

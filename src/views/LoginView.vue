@@ -61,6 +61,7 @@
         color="blue"
         size="large"
         variant="tonal"
+        :loading="loading"
         v-on:click="userLogin"
       >
         Log In
@@ -85,18 +86,21 @@ import store from "../store/index";
 import router from "../router";
 
 const visible = ref(false)
+const loading = ref(false)
 const user = reactive({
   username: null,
   password: null
 })
 
-const userLogin = async ()=>{
+const userLogin = async ()=> {
   if (!user.username || !user.password) {
     alert("Please enter all required fields");
     return;
   }
+  loading.value = true
   store.commit('setToken','yourSecretKey')
   router.push({ path: '/' })
+  loading.value = false
 }
 </script>
 

@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" class="px-0">
-          <v-card>
+          <v-card rounded="lg">
             <v-card-title>Categories</v-card-title>
             <v-card-text>
               
