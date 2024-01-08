@@ -14,7 +14,7 @@ const vuetify = createVuetify({
   components,
   directives,
   defaults: {
-    VBtn: { variant: 'flat', color: 'red' }
+    // VBtn: { variant: 'flat', color: 'red' }
   }
 })
 
