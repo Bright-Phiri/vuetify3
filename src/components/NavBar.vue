@@ -1,6 +1,6 @@
 <template>
    <div class="NavBar">
-    <v-navigation-drawer :width="282" v-model="drawer">
+    <v-navigation-drawer :width="282" v-model="drawer" order="1">
       <v-img class="mt-2" src="../images/logo.png" height="55"></v-img>
       <v-list class="mt-2" nav>
         <v-list-item v-for="link in links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
@@ -12,7 +12,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar elevation="1">
+    <v-app-bar elevation="1" order="2">
       <v-app-bar-nav-icon v-on:click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-app-bar-title>Think</v-app-bar-title>

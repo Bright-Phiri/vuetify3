@@ -13,6 +13,9 @@ import * as directives from 'vuetify/directives'
 const vuetify = createVuetify({
   components,
   directives,
+  defaults: {
+    VBtn: { variant: 'flat', color: 'red' }
+  }
 })
 
 createApp(App).use(store).use(vuetify).use(router).mount('#app')
