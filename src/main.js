@@ -23,9 +23,4 @@ const vuetify = createVuetify({
   }
 })
 
-const app = createApp(App)
-  .use(store)
-  .use(vuetify)
-  .use(router)
-  .use(VueSweetalert2);
-app.mount('#app')
+createApp(App).use(VueSweetalert2).use(store).use(vuetify).use(router).mount('#app')

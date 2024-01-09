@@ -1,11 +1,55 @@
 <template>
   <div class="home">
     <v-container fluid>
+      <!--Add user dialog-->
+      <v-dialog v-model="addUserDialog" persistent width="750" transition="fab-transition">
+        <v-card>
+          <v-card-title class="d-flex justify-space-between">
+            New User
+            <v-icon icon="mdi-close" size="small" v-on:click="addUserDialog = ! addUserDialog"/>
+          </v-card-title>
+          <v-card-text>
+            <v-form>
+              <v-row>
+                <v-col cols="12" sm="6">
+                  <v-text-field density="compact" label="First Name" v-model="user.username" variant="underlined"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-text-field density="compact" label="First Name" variant="underlined"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-text-field density="compact" label="First Name" variant="underlined"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-text-field density="compact" label="First Name" variant="underlined"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-text-field density="compact" label="First Name" variant="underlined"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-text-field density="compact" label="First Name" variant="underlined"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-text-field density="compact" label="First Name" variant="underlined"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-text-field density="compact" label="First Name" variant="underlined"></v-text-field>
+                </v-col>
+              </v-row>
+            </v-form>
+          </v-card-text>
+          <v-card-actions class="d-flex justify-end">
+            <v-btn class="secondary" variant="tonal">Cancel</v-btn>
+            <v-btn color="primary" variant="flat" v-on:click="saveUser">Save</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
       <v-row>
         <v-col cols="12" class="px-0">
           <div class="d-flex justify-space-between">
             <h3 class="text-h4 text-primary">Users</h3>
-            <v-btn prepend-icon="mdi-account-plus" variant="flat" color="primary">New User</v-btn>
+            <v-btn prepend-icon="mdi-account-plus" variant="flat" color="primary" v-on:click="addUserDialog = !addUserDialog">New User</v-btn>
           </div>
           <div class="d-flex justify-end">
             <v-btn icon="mdi-refresh" color="blue" size="small" variant="tonal" class="mt-3 mr-3"></v-btn>
@@ -23,7 +67,8 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted} from 'vue';
+import { ref, reactive, inject, onMounted} from 'vue';
+const swal = inject('$swal')
 const headers = [
   {
     title: 'Id',
@@ -40,8 +85,19 @@ const headers = [
 ]
 const search = ref('')
 const users = reactive([])
+const user = reactive({
+  first_name: null
+});
+const addUserDialog = ref(false)
+
+const saveUser = () => {
+  if (!user.first_name) {
+    swal("Hie")
+    return;
+  }
+};
 
 onMounted(()=> {
   users.push({id: 1, first_name: 'Bright', last_name: 'Issah', username: 'bissah', email: 'bissah@mra.mw', phone: '+265993498492'})
-})
+});
 </script>
