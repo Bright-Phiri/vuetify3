@@ -92,7 +92,11 @@ const addUserDialog = ref(false)
 
 const saveUser = () => {
   if (!user.first_name) {
-    swal("Hie")
+    swal({
+      title: 'Fields validation',
+      text: 'Please enter in all fields.',
+      icon: 'error',
+    });
     return;
   }
 };
@@ -101,3 +105,9 @@ onMounted(()=> {
   users.push({id: 1, first_name: 'Bright', last_name: 'Issah', username: 'bissah', email: 'bissah@mra.mw', phone: '+265993498492'})
 });
 </script>
+
+<style>
+.swal-container {
+  z-index: 2000;
+};
+</style>
