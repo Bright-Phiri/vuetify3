@@ -3,17 +3,18 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" class="px-0">
+          <div class="d-flex justify-space-between">
+            <h3 class="text-h4 text-primary">Users</h3>
+            <v-btn prepend-icon="mdi-account-plus" variant="flat" color="primary">New User</v-btn>
+          </div>
+          <div class="d-flex justify-end">
+            <v-btn icon="mdi-refresh" color="blue" size="small" variant="tonal" class="mt-3 mr-3"></v-btn>
+            <v-col cols="3" class="px-0">
+              <v-text-field label="search" density="compact" variant="outlined" append-inner-icon="mdi-magnify" v-model="search"></v-text-field>
+            </v-col>
+          </div>
           <v-card>
-            <v-card-title class="d-flex justify-space-between">Users <v-btn prepend-icon="mdi-plus" variant="flat" color="primary">New User</v-btn></v-card-title>
-            <v-card-text>
-               <div class="d-flex justify-end">
-                  <v-btn icon="mdi-refresh" color="blue" size="small" variant="tonal" class="mt-3 mr-3"></v-btn>
-                  <v-col cols="3" class="px-0">
-                    <v-text-field label="search" density="compact" variant="outlined" append-inner-icon="mdi-magnify" v-model="search"></v-text-field>
-                  </v-col>
-               </div>
-               <v-data-table class="elevation-1" hover :headers="headers" loading :search="search"></v-data-table>
-            </v-card-text>
+            <v-data-table class="elevation-1" hover :headers="headers" loading :search="search"></v-data-table>
           </v-card>
         </v-col>
       </v-row>
