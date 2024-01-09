@@ -22,7 +22,7 @@
         <p class="mx-3">Bright Issah</p>
       </template>
     </v-app-bar>
-    <Transition name="slide-fade">
+    <Transition name="slide-fade" mode="in-out">
       <router-view/>
     </Transition>
    </div>
