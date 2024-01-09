@@ -81,9 +81,10 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive} from 'vue';
+import { ref, reactive, inject} from 'vue';
 import store from "../store/index";
 import router from "../router";
+const swal = inject('$swal')
 
 const visible = ref(false)
 const loading = ref(false)
@@ -94,7 +95,11 @@ const user = reactive({
 
 const userLogin = async ()=> {
   if (!user.username || !user.password) {
-    alert("Please enter all required fields");
+    swal({
+      title: 'Fields validation',
+      text: 'Please enter both username and password.',
+      icon: 'error',
+    });
     return;
   }
   loading.value = true
