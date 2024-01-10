@@ -22,8 +22,8 @@
                   <v-avatar :image="item.avatar"></v-avatar>
                 </template>
                 <template v-slot:[`item.actions`]="{ item }">
-                  <v-btn @click="item" color="#274DD2" variant="outlined"><v-icon icon="mdi-pencil"/> </v-btn>
-                  <v-btn class="ml-3" color="red" variant="outlined" @click="item"><v-icon icon="mdi-delete"/></v-btn>
+                  <v-btn class="mr-2" @click="item" color="#274DD2" variant="outlined" density="compact"><v-icon icon="mdi-pencil"/> </v-btn>
+                  <v-btn color="red" variant="outlined" @click="item" density="compact"><v-icon icon="mdi-delete"/></v-btn>
                 </template>
               </v-data-table>
             </v-card-text>
