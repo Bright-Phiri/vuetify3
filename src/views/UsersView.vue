@@ -39,7 +39,7 @@
             </v-form>
           </v-card-text>
           <v-card-actions class="d-flex justify-end">
-            <v-btn class="secondary" variant="tonal">Cancel</v-btn>
+            <v-btn class="secondary" variant="tonal" v-on:click="addUserDialog = !addUserDialog">Cancel</v-btn>
             <v-btn color="primary" variant="flat" v-on:click="saveUser">Save</v-btn>
           </v-card-actions>
         </v-card>
@@ -48,7 +48,7 @@
       <v-row>
         <v-col cols="12" class="px-0">
           <div class="d-flex justify-space-between">
-            <h3 class="text-h4 text-primary">Users</h3>
+            <h3 class="text-h5 text-primary">User Management</h3>
             <v-btn prepend-icon="mdi-account-plus" variant="flat" color="primary" v-on:click="addUserDialog = !addUserDialog">New User</v-btn>
           </div>
           <div class="d-flex justify-end">
@@ -67,7 +67,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, inject, onMounted} from 'vue';
+import { ref, reactive, inject, onMounted } from 'vue';
 const swal = inject('$swal')
 const headers = [
   {
@@ -88,6 +88,7 @@ const users = reactive([])
 const user = reactive({
   first_name: null
 });
+
 const addUserDialog = ref(false)
 
 const saveUser = () => {
