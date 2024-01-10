@@ -58,7 +58,15 @@
             </v-col>
           </div>
           <v-card>
-            <v-data-table class="elevation-1" hover :headers="headers" loading :search="search"></v-data-table>
+            <v-data-table class="elevation-1" hover :headers="headers" items-per-page="8" :items="users" :loading="loading" :search="search">
+              <template v-slot:[`item.avatar`]="{ item }">
+                  <v-avatar :image="item.avatar"></v-avatar>
+                </template>
+                <template v-slot:[`item.actions`]="{ item }">
+                  <v-btn @click="item" color="#274DD2" variant="outlined"><v-icon icon="mdi-pencil"/> </v-btn>
+                  <v-btn class="ml-3" color="red" variant="outlined" @click="item"><v-icon icon="mdi-delete"/></v-btn>
+                </template>
+            </v-data-table>
           </v-card>
         </v-col>
       </v-row>
@@ -76,14 +84,16 @@ const headers = [
     sortable: false,
     key: 'id',
   },
-  { title: 'First Name', key: 'first_name', align: 'end' },
-  { title: 'Last Name', key: 'last_name', align: 'end' },
-  { title: 'Username', key: 'username', align: 'end' },
-  { title: 'Email Address', key: 'email', align: 'end' },
-  { title: 'Phone Number', key: 'phone', align: 'end' },
-  { title: 'Actions', key: 'actions', align: 'end' },
+  { title: 'Avatar', key: 'avatar' },
+  { title: 'First Name', key: 'first_name'},
+  { title: 'Last Name', key: 'last_name'},
+  { title: 'Username', key: 'username'},
+  { title: 'Email Address', key: 'email'},
+  { title: 'Phone Number', key: 'phone'},
+  { title: 'Actions', key: 'actions'},
 ]
 const search = ref('')
+const loading = ref(false)
 const users = reactive([])
 const user = reactive({
   first_name: null
@@ -103,12 +113,92 @@ const saveUser = () => {
 };
 
 onMounted(()=> {
-  users.push({id: 1, first_name: 'Bright', last_name: 'Issah', username: 'bissah', email: 'bissah@mra.mw', phone: '+265993498492'})
+  users.push(
+  { id: 1, avatar: 'https://randomuser.me/api/portraits/women/7.jpg', first_name: 'Bright', last_name: 'Issah', username: 'bissah', email: 'bissah@mra.mw', phone: '+265993498492'},
+  { id: 1, avatar: 'https://randomuser.me/api/portraits/women/3.jpg', first_name: 'Bright', last_name: 'Issah', username: 'bissah', email: 'bissah@mra.mw', phone: '+265993498492'},
+  { 
+    id: 103, 
+    avatar: 'https://randomuser.me/api/portraits/women/7.jpg', 
+    first_name: 'Daniel', 
+    last_name: 'Williams', 
+    username: 'dwilliams', 
+    email: 'dwilliams@example.com', 
+    phone: '+2233445566'
+  },
+  { 
+    id: 104, 
+    avatar: 'https://randomuser.me/api/portraits/women/3.jpg', 
+    first_name: 'Eva', 
+    last_name: 'Brown', 
+    username: 'ebrown', 
+    email: 'ebrown@example.com', 
+    phone: '+3344556677'
+  },
+  { 
+    id: 105, 
+    avatar: 'https://randomuser.me/api/portraits/men/52.jpg', 
+    first_name: 'Frank', 
+    last_name: 'Davis', 
+    username: 'fdavis', 
+    email: 'fdavis@example.com', 
+    phone: '+4455667788'
+  },
+  { 
+    id: 106, 
+    avatar: 'https://randomuser.me/api/portraits/men/58.jpg', 
+    first_name: 'Grace', 
+    last_name: 'Taylor', 
+    username: 'gtaylor', 
+    email: 'gtaylor@example.com', 
+    phone: '+5566778899'
+  },
+  { 
+    id: 107, 
+    avatar: 'https://randomuser.me/api/portraits/women/47.jpg', 
+    first_name: 'Henry', 
+    last_name: 'Anderson', 
+    username: 'handerson', 
+    email: 'handerson@example.com', 
+    phone: '+6677889900'
+  },
+  { 
+    id: 108, 
+    avatar: 'https://randomuser.me/api/portraits/men/62.jpg', 
+    first_name: 'Ivy', 
+    last_name: 'Hill', 
+    username: 'ihill', 
+    email: 'ihill@example.com', 
+    phone: '+7788990011'
+  },
+  { 
+    id: 109, 
+    avatar: 'https://randomuser.me/api/portraits/women/23.jpg', 
+    first_name: 'Jack', 
+    last_name: 'Young', 
+    username: 'jyoung', 
+    email: 'jyoung@example.com', 
+    phone: '+8899001122'
+  },
+  { 
+    id: 110, 
+    avatar: 'https://randomuser.me/api/portraits/men/44.jpg', 
+    first_name: 'Katherine', 
+    last_name: 'White', 
+    username: 'kwhite', 
+    email: 'kwhite@example.com', 
+    phone: '+9900112233'
+  },
+  { 
+    id: 111, 
+    avatar: 'https://randomuser.me/api/portraits/men/68.jpg', 
+    first_name: 'Leo', 
+    last_name: 'Miller', 
+    username: 'lmiller', 
+    email: 'lmiller@example.com', 
+    phone: '+0011223344'
+  }
+  )
 });
 </script>
 
-<style>
-.swal-container {
-  z-index: 2000;
-};
-</style>
+

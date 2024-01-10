@@ -52,9 +52,11 @@
        <p class="mx-3 text-grey-darken-1"  >Bright Issah</p>
      </template>
    </v-app-bar>
+   
    <Transition name="slide-fade" mode="in-out">
      <router-view/>
    </Transition>
+  
   </div>
 </template>
 <script setup>
