@@ -56,11 +56,9 @@
    <Transition name="slide-fade" mode="in-out">
      <router-view/>
    </Transition>
-   <v-footer
-      app
-      color="grey"
-      height="44"
-    ></v-footer>
+   <v-footer app color="#F4F5FA" height="44">
+    <p class="text-grey">&copy;{{ new Date().getFullYear() }} <span class="text-blue">Aliscience</span>, All rights Reserved</p>
+   </v-footer>
   
   </div>
 </template>

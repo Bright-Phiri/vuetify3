@@ -6,7 +6,7 @@
           <v-card rounded="lg" elevation="1">
             <v-card-title class="text-grey d-flex justify-space-between py-3">
               <p><v-icon color="#928C99" icon="mdi-playlist-check"/> Subscriptions</p> 
-              <v-btn prepend-icon="mdi-plus" elevation="1" color="#274DD2">Add subscription</v-btn>
+              <v-btn prepend-icon="mdi-plus" elevation="1" color="#274DD2" v-on:click="loadAddUserPage">Add subscription</v-btn>
             </v-card-title>
             <v-divider></v-divider>
             <div class="d-flex justify-space-between">
@@ -17,7 +17,7 @@
               </div>
               <v-divider></v-divider>
             <v-card-text>
-              <v-data-table show-select class="elevation-0" items-per-page="8" hover :headers="headers" :items="users" loading-text="Loading users" :loading="loading" :search="search">
+              <v-data-table show-select class="elevation-0" items-per-page="7" hover :headers="headers" :items="users" loading-text="Loading users" :loading="loading" :search="search">
                 <template v-slot:[`item.avatar`]="{ item }">
                   <v-avatar :image="item.avatar"></v-avatar>
                 </template>
@@ -36,6 +36,7 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
+import router from "../router";
 const headers = [
   {
     title: 'Id',
@@ -54,6 +55,10 @@ const headers = [
 
 const users = reactive([])
 const loading = ref(false)
+
+const loadAddUserPage = ()=> {
+  router.push( { path: '/adduser' })
+}
 
 
 onMounted(()=> {
@@ -141,7 +146,7 @@ onMounted(()=> {
     email: 'lmiller@example.com', 
     phone: '+0011223344'
   }
-    )
+  )
 });
 </script>
 

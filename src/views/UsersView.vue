@@ -58,7 +58,7 @@
             </v-col>
           </div>
           <v-card>
-            <v-data-table class="elevation-1" hover :headers="headers" items-per-page="8" :items="users" :loading="loading" :search="search">
+            <v-data-table class="elevation-1" hover :headers="headers" items-per-page="7" :items="users" :loading="loading" :search="search">
               <template v-slot:[`item.avatar`]="{ item }">
                   <v-avatar :image="item.avatar"></v-avatar>
                 </template>
