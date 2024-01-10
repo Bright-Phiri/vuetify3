@@ -11,13 +11,13 @@
             <v-divider></v-divider>
             <div class="d-flex justify-space-between">
               <v-col cols="3" class="pt-4 py-0">
-                <v-text-field density="compact" prepend-inner-icon="mdi-magnify" variant="outlined" placeholder="Search subscription"></v-text-field>
+                <v-text-field density="compact" prepend-inner-icon="mdi-magnify" variant="outlined" placeholder="Search subscription" v-model="search"></v-text-field>
               </v-col>
               <v-btn icon="mdi-refresh" size="small" color="#274DD2" variant="text" class="mt-3 mr-3"></v-btn>
               </div>
               <v-divider></v-divider>
             <v-card-text>
-              <v-data-table show-select class="elevation-0" items-per-page="7" hover :headers="headers" :items="users" loading-text="Loading users" :loading="loading" :search="search">
+              <v-data-table show-select class="elevation-0" items-per-page="7" hover :headers="headers" :items="users"  loading-text="Loading users" :loading="loading" :search="search">
                 <template v-slot:[`item.avatar`]="{ item }">
                   <v-avatar :image="item.avatar"></v-avatar>
                 </template>
@@ -54,6 +54,7 @@ const headers = [
 ]
 
 const users = reactive([])
+const search = ref('')
 const loading = ref(false)
 
 const loadAddUserPage = ()=> {
