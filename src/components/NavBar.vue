@@ -30,7 +30,7 @@
 
 <template>
   <div class="NavBar">
-   <v-navigation-drawer color="#1B2738" :width="282" v-model="drawer" order="0">
+   <v-navigation-drawer color="#1B2738" v-model="drawer" order="0">
      <v-img class="mt-2" src="../images/logo.png" height="55"></v-img>
      <v-list class="mt-2" nav>
        <v-list-item v-for="link in links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
@@ -56,6 +56,11 @@
    <Transition name="slide-fade" mode="in-out">
      <router-view/>
    </Transition>
+   <v-footer
+      app
+      color="grey"
+      height="44"
+    ></v-footer>
   
   </div>
 </template>
