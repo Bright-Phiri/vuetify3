@@ -42,7 +42,7 @@
      </template>
    </v-navigation-drawer>
 
-   <v-app-bar elevation="0" order="1">
+   <v-app-bar elevation="0" color="#1B2738" order="1">
      <v-app-bar-nav-icon v-on:click="drawer = !drawer"></v-app-bar-nav-icon>
 
      <v-app-bar-title></v-app-bar-title>
