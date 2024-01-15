@@ -57,8 +57,9 @@
               <v-text-field label="search" density="compact" variant="outlined" append-inner-icon="mdi-magnify" v-model="search"></v-text-field>
             </v-col>
           </div>
-          <v-card>
-            <v-data-table class="elevation-1" hover :headers="headers" items-per-page="7" :items="users" :loading="loading" :search="search">
+          
+          <v-card hover>
+            <v-data-table class="elevation-1" hover :headers="headers" items-per-page="6" :items="users" :loading="loading" :search="search">
               <template v-slot:[`item.avatar`]="{ item }">
                   <v-avatar :image="item.avatar"></v-avatar>
                 </template>

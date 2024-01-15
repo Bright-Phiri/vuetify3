@@ -57,6 +57,7 @@
 
       <v-btn
         block
+        prepend-icon="mdi-login"
         class="mb-8"
         color="blue"
         size="large"
@@ -64,6 +65,9 @@
         :loading="loading"
         v-on:click="userLogin"
       >
+      <template v-slot:prepend>
+        <v-icon color="red"></v-icon>
+      </template>
         Log In
       </v-btn>
 

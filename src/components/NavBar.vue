@@ -33,7 +33,7 @@
    <v-navigation-drawer color="#1B2738" v-model="drawer" order="0">
      <v-img class="mt-2" src="../images/logo.png" height="55"></v-img>
      <v-list class="mt-2" nav>
-       <v-list-item v-for="link in links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" router :to="link.route"></v-list-item>
+       <v-list-item class="rounded-e-xl" v-for="link in links" :key="link.title" :prepend-icon="link.icon" :title="link.title" :value="link.title" :to="link.route"></v-list-item>
      </v-list>
      <template v-slot:append>
        <v-list class="mb-1" nav>
@@ -42,7 +42,7 @@
      </template>
    </v-navigation-drawer>
 
-   <v-app-bar elevation="0" color="#1B2738" order="1">
+   <v-app-bar color="#F4F5FA" elevation="0" order="1">
      <v-app-bar-nav-icon v-on:click="drawer = !drawer"></v-app-bar-nav-icon>
 
      <v-app-bar-title></v-app-bar-title>
