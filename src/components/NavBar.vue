@@ -49,7 +49,7 @@
      <template v-slot:append>
        <v-btn color="#8E8997" icon="mdi-brightness-4" variant="tonal" v-on:click="toggleTheme"></v-btn>
        <v-icon icon="mdi-account" color="#8E8997" class="ml-2" />
-       <p class="mx-3 text-grey-darken-1"  >Bright Issah</p>
+       <p class="mx-3 text-grey-darken-1">Bright Issah</p>
      </template>
    </v-app-bar>
    
