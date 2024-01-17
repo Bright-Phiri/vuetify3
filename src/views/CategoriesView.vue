@@ -17,7 +17,7 @@
               </div>
               <v-divider></v-divider>
             <v-card-text>
-              <v-data-table show-select class="elevation-0" items-per-page="7" hover :headers="headers" :items="users"  loading-text="Loading users" :loading="loading" :search="search">
+              <v-data-table show-select class="elevation-0" items-per-page="5" hover :headers="headers" :items="users"  loading-text="Loading users" :loading="loading" :search="search">
                 <template v-slot:[`item.avatar`]="{ item }">
                   <v-avatar :image="item.avatar"></v-avatar>
                 </template>
