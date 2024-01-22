@@ -76,17 +76,17 @@ const router = createRouter({
   routes
 })
 
-// Global navigation guard
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = store.state.isUserLoggedIn;
+// // Global navigation guard
+// router.beforeEach((to, from, next) => {
+//   const isAuthenticated = store.state.isUserLoggedIn;
 
-  if (to.name !== 'login' && !isAuthenticated) {
-    // Redirect to the login page if not authenticated
-    next({ name: 'login' });
-  } else {
-    // Continue with the navigation
-    next();
-  }
-});
+//   if (to.name !== 'login' && !isAuthenticated) {
+//     // Redirect to the login page if not authenticated
+//     next({ name: 'login' });
+//   } else {
+//     // Continue with the navigation
+//     next();
+//   }
+// });
 
 export default router
