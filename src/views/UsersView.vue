@@ -36,8 +36,8 @@
                   <v-text-field density="compact" label="First Name" variant="underlined"></v-text-field>
                 </v-col>
               </v-row>
-            </v-form>
-          </v-card-text>
+            </v-form> 
+          </v-card-text> 
           <v-card-actions class="d-flex justify-end">
             <v-btn class="secondary" variant="tonal" v-on:click="addUserDialog = !addUserDialog">Cancel</v-btn>
             <v-btn color="primary" variant="flat" v-on:click="saveUser">Save</v-btn>
