@@ -8,7 +8,7 @@
             New User
             <v-icon icon="mdi-close" size="small" v-on:click="addUserDialog = ! addUserDialog"/>
           </v-card-title> 
-          <v-card-text> 
+          <v-card-text>  
             <v-form>
               <v-row>
                 <v-col cols="12" sm="6">

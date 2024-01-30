@@ -59,7 +59,7 @@
   </div>
 </template>
 
-<!-- <template>
+<template>
   <div class="NavBar">
    <v-navigation-drawer color="#1B2738" v-model="drawer" order="0">
      <v-img class="mt-2" src="../images/logo.png" height="55"></v-img>
@@ -91,7 +91,7 @@
     <p class="text-grey">&copy;{{ new Date().getFullYear() }} <span class="text-blue">Aliscience</span>, All rights Reserved</p>
    </v-footer>
   </div>
-</template> -->
+</template>
 
 <script setup>
 import { ref } from "vue"
