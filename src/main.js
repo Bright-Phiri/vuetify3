@@ -9,6 +9,7 @@ import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loade
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import VueApexCharts from "vue3-apexcharts";
 
 //sweetalert2
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -20,8 +21,8 @@ const vuetify = createVuetify({
   directives,
   defaults: {
     // VBtn: { variant: 'flat', color: 'red' }
-    VTextField: { color: 'primary' }
+    VTextField: { color: 'green' }
   }
 })
 
-createApp(App).use(VueSweetalert2).use(store).use(vuetify).use(router).mount('#app')
+createApp(App).use(VueApexCharts).use(VueSweetalert2).use(store).use(vuetify).use(router).mount('#app')
