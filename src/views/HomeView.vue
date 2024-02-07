@@ -10,7 +10,7 @@
           <v-card elevation="0">
             <v-card-text class="d-flex justify-space-between">
               <div class="d-flex flex-column">
-                <span class="text-h6 font-weight-bold">34</span>
+                <span class="text-h6 font-weight-bold">{{ tweened.number.toFixed(0) }}</span>
                 <span>SALES</span>
               </div>
               <div class="d-flex flex-column justify-center">
@@ -99,4 +99,20 @@
 </template>
 
 <script setup>
+import {ref, reactive, watch, onMounted } from 'vue';
+import gsap from 'gsap'
+const number = ref(0)
+const tweened = reactive({
+  number: 0
+})
+
+watch(number, (n) => {
+  gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
+})
+
+onMounted(() => {
+  number.value = 500
+  // Perform animation when DOM is mounted
+  gsap.to(tweened, { duration: 0.9, number: Number(number.value) || 0 })
+})
 </script>

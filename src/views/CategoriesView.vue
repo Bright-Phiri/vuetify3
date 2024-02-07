@@ -7,7 +7,7 @@
             <v-card-title class="text-grey d-flex justify-space-between py-3">
               <p>
                 <v-icon color="#928C99" icon="mdi-playlist-check" />
-                Subscriptions
+                Manage Users
               </p>
               <v-btn
                 prepend-icon="mdi-plus"
@@ -15,7 +15,7 @@
                 variant="outlined"
                 color="#2F8748"
                 v-on:click="loadAddUserPage"
-                >New Sub</v-btn
+                >New User</v-btn
               >
             </v-card-title>
             <v-divider></v-divider>

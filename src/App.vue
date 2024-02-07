@@ -13,7 +13,7 @@
 <style>
 .background-container {
   background-color: black;
-  height: 20vh; /* Set the height to 50% of the viewport height */
+  height: 25vh; /* Set the height to 50% of the viewport height */
   overflow: visible; /* Hide content overflow */
 }
 </style>
