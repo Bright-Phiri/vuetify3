@@ -13,7 +13,6 @@ import * as directives from 'vuetify/directives'
 //sweetalert2
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import VueApexCharts from "vue3-apexcharts";
 import './assets/styles.css';
 
 const vuetify = createVuetify({
@@ -25,4 +24,4 @@ const vuetify = createVuetify({
   }
 })
 
-createApp(App).use(VueApexCharts).use(VueSweetalert2).use(store).use(vuetify).use(router).mount('#app')
+createApp(App).use(VueSweetalert2).use(store).use(vuetify).use(router).mount('#app')
