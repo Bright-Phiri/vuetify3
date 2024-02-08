@@ -12,11 +12,24 @@
 
 <style>
 .background-container {
-  background-color: black;
-  height: 25vh; /* Set the height to 50% of the viewport height */
+  height: 25vh; /* Set the height to 25% of the viewport height */
   overflow: visible; /* Hide content overflow */
+  background-color: black;
 }
 </style>
+
+<!-- <style>
+.background-container {
+  height: 25vh; /* Set the height to 25% of the viewport height */
+  overflow: visible; /* Hide content overflow */
+  background-image: url('https://cdn.vuetifyjs.com/docs/images/cards/purple-flowers.jpg');
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+</style> -->
+
 
 
 <!-- <template>
