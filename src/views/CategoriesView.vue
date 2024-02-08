@@ -10,7 +10,7 @@
                 Manage Users
               </p>
               <v-btn prepend-icon="mdi-plus" elevation="1" variant="outlined" color="#2F8748"
-                v-on:click="loadAddUserPage">New User</v-btn>
+                v-on:click="loadAddUserPage" class="text-capitalize">New User</v-btn>
             </v-card-title>
             <v-divider></v-divider>
             <div class="d-flex justify-space-between">

@@ -13,7 +13,7 @@
             </v-card-text>
             <v-card-actions class="d-flex justify-center">
               <v-btn color="black" variant="outlined" class="mb-3" @click="loadUsersPage">Cancel</v-btn>
-              <v-btn color="#274DD2" variant="elevated" class="mb-3">Save</v-btn>
+              <v-btn color="green" variant="elevated" class="mb-3">Save</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>

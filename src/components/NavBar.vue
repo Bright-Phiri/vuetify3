@@ -36,10 +36,7 @@
       <v-app-bar-nav-icon v-on:click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-app-bar-title>
-        <v-col cols="3">
-          <v-text-field placeholder="Search..." class="mt-5" append-inner-icon="mdi-magnify" density="compact"
-            variant="outlined"></v-text-field>
-        </v-col>
+        <v-img width="40" src="./images/logos.png"></v-img>
       </v-app-bar-title>
 
       <template v-slot:append>

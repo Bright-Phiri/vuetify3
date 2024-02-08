@@ -1,13 +1,11 @@
 <template>
   <div>
-    <v-img
-      class="mx-auto my-6"
-      max-width="228"
-      src="../images/logo.png"
-    ></v-img>
+    <div class="d-flex justify-center">
+      <v-icon color="white" size="x-large" icon="mdi-lock-open"/>
+    </div>
 
     <v-card
-      class="mx-auto pa-12 pb-8"
+      class="mx-auto pa-12 pb-8 mt-5"
       elevation="8"
       max-width="448"
       rounded="lg"
@@ -43,7 +41,8 @@
         variant="outlined"
         v-model="user.password"
         @click:append-inner="visible = !visible"
-      ></v-text-field>
+      >
+    </v-text-field>
 
       <v-card
         class="mb-12"
@@ -57,7 +56,6 @@
 
       <v-btn
         block
-        prepend-icon="mdi-login"
         class="mb-8"
         color="blue"
         size="large"
@@ -65,10 +63,9 @@
         :loading="loading"
         v-on:click="userLogin"
       >
-      <template v-slot:prepend>
-        <v-icon color="red"></v-icon>
+      <template v-slot>
+        Login
       </template>
-        Log In
       </v-btn>
 
       <v-card-text class="text-center">
