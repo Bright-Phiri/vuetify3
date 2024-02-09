@@ -7,7 +7,7 @@
             <v-card-title class="text-grey d-flex justify-space-between py-3">
               <p>
                 <v-icon color="#928C99" icon="mdi-playlist-check" />
-                Manage Users
+                Manage Users 
               </p>
               <v-btn prepend-icon="mdi-plus" elevation="1" variant="outlined" color="#2F8748"
                 v-on:click="loadAddUserPage" class="text-capitalize">New User</v-btn>
