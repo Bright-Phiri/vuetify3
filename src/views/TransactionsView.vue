@@ -6,7 +6,7 @@
           <v-card>
             <v-card-title>Transactions</v-card-title>
             <v-card-text>
-              
+              <v-data-table></v-data-table>
             </v-card-text>
           </v-card>
         </v-col>
