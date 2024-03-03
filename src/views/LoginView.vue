@@ -81,6 +81,7 @@
     </v-card>
   </div>
 </template>
+
 <script setup>
 import { ref, reactive, inject} from 'vue';
 import store from "../store/index";

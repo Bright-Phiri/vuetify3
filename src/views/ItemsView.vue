@@ -74,8 +74,6 @@ const users = reactive([]);
 const search = ref("");
 const loading = ref(true);
 
-
-
 onMounted(() => {
   setTimeout(() => {
     users.push(
