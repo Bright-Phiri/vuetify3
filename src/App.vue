@@ -10,15 +10,15 @@
   </v-app>
 </template>
 
-<!-- <style>
+<style>
 .background-container {
   height: 25vh; /* Set the height to 25% of the viewport height */
   overflow: visible; /* Hide content overflow */
   background-color: black;
 }
-</style> -->
+</style>
 
-<style>
+<!-- <style>
 .background-container {
   height: 25vh; /* Set the height to 25% of the viewport height */
   overflow: visible; /* Hide content overflow */
@@ -28,7 +28,7 @@
   background-repeat: no-repeat; /* Prevent the background image from repeating */
 }
 
-</style>
+</style> -->
 
 
 
