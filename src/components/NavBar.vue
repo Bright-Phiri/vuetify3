@@ -35,7 +35,7 @@
           <v-list-item class="mb-10" prepend-icon="mdi-logout" title="Log out" to="/logout"></v-list-item>
           </template>
     </v-navigation-drawer>
-    <v-app-bar density="prominent">
+    <v-app-bar density="prominent" elevation="0">
       <v-app-bar-title>
         <div class="d-flex flex-column mx-10">
           <span class="text-h4 font-weight-bold">Hello, Bright</span>
