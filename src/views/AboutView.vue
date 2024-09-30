@@ -163,7 +163,7 @@ export default defineComponent({
           data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13,4,4,5,9]
         }],
         chart: {
-          height: 270,
+          height: 220,
           type: 'line',
         },
         forecastDataPoints: {

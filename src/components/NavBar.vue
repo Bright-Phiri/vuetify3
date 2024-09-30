@@ -2,6 +2,7 @@
   <div class="NavBar">
     <v-navigation-drawer
       image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
+      theme="dark"
     >
       <v-list class="mt-5">
         <v-list-item prepend-avatar="../logo1.png">
