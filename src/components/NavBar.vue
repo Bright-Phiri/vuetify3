@@ -6,7 +6,7 @@
           <template v-slot:title>
             <span class="text-h4 font-weight-bold">TaskTrek</span>
           </template>
-        </v-list-item>
+      </v-list-item>
       </v-list>
        <v-list nav>
           <v-list-item prepend-icon="mdi-home-outline" title="Home" to="/dashbaord"></v-list-item>
