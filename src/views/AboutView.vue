@@ -85,6 +85,7 @@
                 <v-chip v-if="item.status == 'In progress'" color="orange"> {{ item.status }}</v-chip>
                 <v-chip v-if="item.status == 'On hold'" color="blue"> {{ item.status }}</v-chip>
                 <v-chip v-if="item.status == 'Done'" color="green"> {{ item.status }}</v-chip>
+                
               </template>
             </v-data-table>
           </v-card-text>
