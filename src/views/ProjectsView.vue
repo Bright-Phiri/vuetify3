@@ -4,7 +4,7 @@
         <v-card rounded="shaped" elevation="2">
           <v-card-title class="d-flex justify-space-between">
             <span>Projects</span>
-            <v-btn color="black" prepend-icon="mdi-plus" variant="outlined" class="text-capitalize">Add Project</v-btn>
+            <v-btn color="#12519A" prepend-icon="mdi-plus" variant="outlined" class="text-capitalize">Add Project</v-btn>
           </v-card-title>
           <v-card-text>
             <div class="d-flex">
@@ -70,7 +70,7 @@
 
 <style scoped>
 .gradient-loader {
-  background: linear-gradient(90deg, #FAC347, #FF5733); /* Adjust colors as needed */
+  background: linear-gradient(90deg, #FAC347, #FF5733); 
 }
 </style>
 

@@ -1,41 +1,44 @@
 <template>
   <div class="NavBar">
-    <v-navigation-drawer>
+    <v-navigation-drawer
+      image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
+    >
       <v-list class="mt-5">
         <v-list-item prepend-avatar="../logo1.png">
           <template v-slot:title>
-            <span class="text-h4 font-weight-bold">TaskTrek</span>
+            <span class="text-h4 font-weight-bold text-white">TaskTrek</span>
           </template>
       </v-list-item>
       </v-list>
        <v-list nav>
-          <v-list-item prepend-icon="mdi-home-outline" title="Home" to="/dashbaord"></v-list-item>
-          <v-list-item prepend-icon="mdi-view-grid" title="Projects" to="/projects">
+          <v-list-item prepend-icon="mdi-home-outline" class="text-white" title="Home" to="/dashbaord"></v-list-item>
+          <v-list-item prepend-icon="mdi-view-grid" class="text-white" title="Projects" to="/projects">
             <template v-slot:append>
-              <v-btn density="compact" color="black" icon variant="tonal">
+              <v-btn density="compact" color="white" icon variant="tonal">
                 <v-icon icon="mdi-plus" size="14"></v-icon>
               </v-btn>
             </template>
           </v-list-item>
-          <v-list-item prepend-icon="mdi-format-list-checks" title="Tasks" to="/tasks">
+          <v-list-item prepend-icon="mdi-format-list-checks" class="text-white" title="Tasks" to="/tasks">
             <template v-slot:append>
-              <v-btn density="compact" color="black" icon variant="tonal">
+              <v-btn density="compact" color="white" icon variant="tonal">
                 <v-icon icon="mdi-plus" size="14"></v-icon>
               </v-btn>
             </template>
           </v-list-item>
-          <v-list-item prepend-icon="mdi-dots-triangle" title="Team" to="/team"></v-list-item>
-          <v-list-item prepend-icon="mdi-cog" title="Settings" to="/settings"></v-list-item>
+          <v-list-item prepend-icon="mdi-dots-triangle" class="text-white"  title="Team" to="/team"></v-list-item>
+          <v-list-item prepend-icon="mdi-cog" title="Settings" class="text-white" to="/settings"></v-list-item>
+          
        </v-list>
        <template v-slot:append>
-        <v-list-item prepend-icon="mdi-information" title="Help & information" to="/help"></v-list-item>
-        <v-list-item class="mb-10" prepend-icon="mdi-logout" title="Log out" to="/logout"></v-list-item>
+          <v-list-item prepend-icon="mdi-information" class="text-white" title="Help & information" to="/help"></v-list-item>
+          <v-list-item class="mb-10 text-white" prepend-icon="mdi-logout" title="Log out" to="/logout"></v-list-item>
        </template>
     </v-navigation-drawer>
     <v-app-bar density="prominent" elevation="0">
       <v-app-bar-title>
         <div class="d-flex flex-column mx-10">
-          <span class="text-h4 font-weight-bold">Hello, Bright</span>
+          <span class="text-h3 font-weight-light">Hello, Bright</span>
           <span class="text-subtitle-2 font-weight-light">Track team progress here, You almost reach a goal</span>
         </div>
       </v-app-bar-title>
@@ -49,6 +52,7 @@
     </Transition>
   </div>
 </template>
+
 <script>
 
 export default {
@@ -58,6 +62,7 @@ export default {
   }),
 }
 </script>
+
 
 <style scoped>
 .slide-fade-enter-active {

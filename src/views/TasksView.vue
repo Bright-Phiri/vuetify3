@@ -4,7 +4,7 @@
       <v-card rounded="shaped" elevation="2">
         <v-card-title class="d-flex justify-space-between">
             <span>Tasks</span>
-            <v-btn color="black" prepend-icon="mdi-plus" variant="outlined" class="text-capitalize">Add Task</v-btn>
+            <v-btn color="#12519A" prepend-icon="mdi-plus" variant="outlined" class="text-capitalize">Add Task</v-btn>
           </v-card-title>
         <v-card-text>
           <div class="d-flex">
