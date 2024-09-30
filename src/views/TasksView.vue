@@ -64,9 +64,7 @@ onMounted(() => {
   }, 2000);
 });
 
-
 </script>
-
 <style scoped>
 .gradient-loader {
   background: linear-gradient(90deg, #FAC347, #FF5733); 

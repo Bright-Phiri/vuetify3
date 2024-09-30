@@ -26,12 +26,11 @@
           </v-list-item>
           <v-list-item prepend-icon="mdi-dots-triangle" title="Team" to="/team"></v-list-item>
           <v-list-item prepend-icon="mdi-cog" title="Settings" to="/settings"></v-list-item>
-          
        </v-list>
        <template v-slot:append>
-          <v-list-item prepend-icon="mdi-information" title="Help & information" to="/help"></v-list-item>
-          <v-list-item class="mb-10" prepend-icon="mdi-logout" title="Log out" to="/logout"></v-list-item>
-          </template>
+        <v-list-item prepend-icon="mdi-information" title="Help & information" to="/help"></v-list-item>
+        <v-list-item class="mb-10" prepend-icon="mdi-logout" title="Log out" to="/logout"></v-list-item>
+       </template>
     </v-navigation-drawer>
     <v-app-bar density="prominent" elevation="0">
       <v-app-bar-title>
@@ -50,7 +49,6 @@
     </Transition>
   </div>
 </template>
-
 <script>
 
 export default {
@@ -60,7 +58,6 @@ export default {
   }),
 }
 </script>
-
 
 <style scoped>
 .slide-fade-enter-active {
