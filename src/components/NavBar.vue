@@ -1,8 +1,6 @@
 <template>
   <div class="NavBar">
-    <v-navigation-drawer 
-   
-    >
+    <v-navigation-drawer>
       <v-list class="mt-5">
         <v-list-item prepend-avatar="../logo1.png">
           <template v-slot:title>
