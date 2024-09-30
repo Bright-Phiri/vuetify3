@@ -1,7 +1,7 @@
 <template>
   <div class="NavBar">
     <v-navigation-drawer 
-     
+   
     >
       <v-list class="mt-5">
         <v-list-item prepend-avatar="../logo1.png">
@@ -47,7 +47,9 @@
         <v-btn class="mx-3" icon="mdi-calendar" variant="tonal"></v-btn>
       </template>
     </v-app-bar>
-    <router-view/>
+    <Transition name="slide-fade" mode="in-out">
+      <router-view />
+    </Transition>
   </div>
 </template>
 
@@ -60,3 +62,19 @@ export default {
   }),
 }
 </script>
+
+
+<style scoped>
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}</style>
