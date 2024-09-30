@@ -29,6 +29,16 @@
             <v-text-field label="Position" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
           </v-col>
         </v-row>
+
+        <v-row>
+          <v-col cols="6">
+            <v-text-field label="Password" prepend-inner-icon="mdi-lock" variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+          <v-col cols="6">
+            <v-text-field label="Comfirm Password" prepend-inner-icon="mdi-lock" variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+        </v-row>
+
       </v-card-text>
       <v-card-actions class="d-flex justify-end mb-2 mr-2">
         <v-btn color="black" variant="outlined" v-on:click="dialog = !dialog">Cancel</v-btn>
