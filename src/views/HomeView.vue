@@ -1,33 +1,64 @@
 <template>
+  <v-dialog persistent v-model="dialog" :width="800" transition="fab-transition">
+    <v-card>
+      <v-card-title class="d-flex justify-space-between">Add New Team Member <v-icon v-on:click="dialog = !dialog" icon="mdi-close" ></v-icon></v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col cols="6">
+            <v-text-field label="First Name" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+          <v-col cols="6">
+            <v-text-field label="Last Name" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="6">
+            <v-text-field label="Username" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+          <v-col cols="6">
+            <v-text-field label="Email Address" prepend-inner-icon="mdi-email" variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="6">
+            <v-text-field label="Phone Number" prepend-inner-icon="mdi-phone" variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+          <v-col cols="6">
+            <v-text-field label="Position" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+        </v-row>
+      </v-card-text>
+      <v-card-actions class="d-flex justify-end mb-2 mr-2">
+        <v-btn color="black" variant="outlined" v-on:click="dialog = !dialog">Cancel</v-btn>
+        <v-btn color="primary" variant="outlined">Save</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
   <v-row class="px-12">
-    <v-col cols="12">
-      <v-card rounded="shaped" elevation="2">
-        <v-card-title class="d-flex justify-space-between">
-            <span>Team</span>
-            <v-btn color="#12519A" prepend-icon="mdi-plus" variant="outlined" class="text-capitalize">New Member</v-btn>
-          </v-card-title>
-        <v-card-text>
-          <div class="d-flex">
-              <v-col cols="3" class="px-0">
-                <v-text-field label="Search" prepend-inner-icon="mdi-magnify" v-model="search" density="compact" variant="outlined"></v-text-field>
-              </v-col>
-            </div>
-          <v-data-table :headers="headers" :items="users" :loading="loading" :search="search" hover density="comfortable">
-            <template v-slot:loader>
-              <v-progress-linear height="3" class="gradient-loader" indeterminate></v-progress-linear>
-            </template>
-            <template v-slot:[`item.avatar`]="{ item }">
-                <v-avatar size="33" :image="item.avatar"></v-avatar>
-            </template>
-            <template v-slot:[`item.status`]="{ item }">
-              <v-chip v-if="item.status == 'Active'" color="green" rounded="medium" variant="outlined" size="small" style="width: 65px">{{item.status}}</v-chip>
-              <v-chip v-if="item.status == 'Inactive'" color="red" rounded="medium" variant="outlined" size="small" style="width: 65px">{{item.status}}</v-chip>
-            </template>
-            <template v-slot:[`item.actions`]="{ item }">
-                <v-btn @click="item" density="compact"  color="#274DD2" variant="text"><v-icon size="small" icon="mdi-pencil"/> </v-btn>
-                <v-btn density="comfortable" color="red" variant="text" @click="item"><v-icon size="small" icon="mdi-delete"/></v-btn>
-            </template>
-          </v-data-table>
+    <v-col cols="12" class="p-0">
+      <div class="d-flex justify-space-between">
+        <v-col cols="3" class="px-0">
+          <v-text-field label="Search" v-model="search" @input="filterMembers" variant="outlined" prepend-inner-icon="mdi-magnify" density="compact"></v-text-field>
+        </v-col>
+        <v-spacer></v-spacer>
+        <v-btn color="blue" variant="outlined" class="text-capitalize" prepend-icon="mdi-account-plus" v-on:click="dialog = !dialog">New member</v-btn>
+      </div>
+    </v-col>
+
+    <v-col cols="12" v-if="loading">
+      <v-progress-linear indeterminate></v-progress-linear>
+    </v-col>
+
+    <v-col v-for="user in filteredUsers" :key="user.avatar" cols="12" sm="6" md="4" lg="3">
+      <v-card rounded="xl" color="#FFFAF0" elevation="1">
+        <v-card-text class="d-flex flex-column justify-center align-center">
+          <v-avatar size="80" :image="user.avatar"></v-avatar>
+          <span class="mt-2">{{ user.name }}</span>
+          <span class="mt-2"><v-icon icon="mdi-email"></v-icon>{{ user.email }}</span>
+          <span class="mt-2"><v-icon icon="mdi-phone"></v-icon>{{ user.manager }}</span>
         </v-card-text>
       </v-card>
     </v-col>
@@ -35,36 +66,37 @@
 </template>
 
 <script setup>
-import { ref, onMounted, reactive  } from 'vue';
-const headers = [
- 
-  { title: "Avatar", align: "start", sortable: false, key: "avatar" },
-  { title: "Name", key: "name" },
-  { title: "Username", key: "username" },
-  { title: "Email", key: "email" },
-  { title: "Phone Number", key: "manager" },
-  { title: "Role", key: "phone" },
-  { title: "Status", key: "status" },
-  { title: "Actions", key: "actions" },
-];
+import { ref, onMounted, reactive } from 'vue';
 
 const users = reactive([]);
+const filteredUsers = ref([]); // Use ref for reactivity
 const search = ref("");
-
+const dialog = ref(false);
 const loading = ref(true);
+
+const filterMembers = () => {
+  const query = search.value.toLowerCase();
+  filteredUsers.value = users.filter(user =>
+    user.name.toLowerCase().includes(query)
+  );
+};
 
 onMounted(() => {
   setTimeout(() => {
     users.push(
       { name: "John Doe", avatar: "./75846202.jpg", username: "johndoe", email: "john@example.com", manager: "123-456-7890", phone: "Admin", status: "Active" },
-  { name: "Jane Smith", avatar: "./avatar.jpg", username: "janesmith", email: "jane@example.com", manager: "987-654-3210", phone: "User", status: "Inactive" },
-  { name: "Alice Johnson", avatar: "./1501387.jpg", username: "alicejohnson", email: "alice@example.com", manager: "567-890-1234", phone: "User", status: "Active" },
-  { name: "Bob Brown", avatar: "./44230356.jpg", username: "bobbrown", email: "bob@example.com", manager: "345-678-9012", phone: "Admin", status: "Inactive" }
+      { name: "Bright Phiri", avatar: "./avatar.jpg", username: "janesmith", email: "jane@example.com", manager: "987-654-3210", phone: "User", status: "Inactive" },
+      { name: "Alice Johnson", avatar: "./1501387.jpg", username: "alicejohnson", email: "alice@example.com", manager: "567-890-1234", phone: "User", status: "Active" },
+      { name: "Bob Brown", avatar: "./44230356.jpg", username: "bobbrown", email: "bob@example.com", manager: "345-678-9012", phone: "Admin", status: "Inactive" },
+      { name: "Mary Phiri", avatar: "./22.jpg", username: "mary", email: "mary@gmail.com", manager: "345-678-9012", phone: "Admin", status: "Inactive" },
+      { name: "Brian Issah", avatar: "./bb.jpeg", username: "bright", email: "bright@gmail.com", manager: "345-678-9012", phone: "Admin", status: "Inactive" },
+      { name: "SenzeNajni Manjawira", avatar: "./33.jpg", username: "senze213", email: "senze@gmail.com", manager: "345-678-9012", phone: "Admin", status: "Inactive" },
+      { name: "Yamikani Phiri", avatar: "./11.jpeg", username: "yami", email: "yamikani@gmail.com", manager: "345-678-9012", phone: "Admin", status: "Inactive" }
     );
-    loading.value = false
-  }, 2000);
+    filteredUsers.value = users; // Initialize filteredUsers
+    loading.value = false;
+  }, 1000);
 });
-
 </script>
 
 <style scoped>
