@@ -1,4 +1,4 @@
-# vuetify3
+# my-vuetify3-app
 
 ## Project setup
 ```
@@ -10,7 +10,7 @@ yarn install
 yarn serve
 ```
 
-### Compiles and minifies for production 
+### Compiles and minifies for production
 ```
 yarn build
 ```
@@ -22,4 +22,3 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-# vuetify3
