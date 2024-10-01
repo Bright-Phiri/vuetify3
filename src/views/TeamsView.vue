@@ -5,37 +5,37 @@
       <v-card-text>
         <v-row>
           <v-col cols="6">
-            <v-text-field label="First Name" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
+            <v-text-field label="First Name" prepend-inner-icon="mdi-account" clearable variant="outlined" density="comfortable"></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field label="Last Name" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-col cols="6">
-            <v-text-field label="Username" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
-          </v-col>
-          <v-col cols="6">
-            <v-text-field label="Email Address" prepend-inner-icon="mdi-email" variant="outlined" density="comfortable"></v-text-field>
+            <v-text-field label="Last Name" prepend-inner-icon="mdi-account" clearable variant="outlined" density="comfortable"></v-text-field>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="6">
-            <v-text-field label="Phone Number" prepend-inner-icon="mdi-phone" variant="outlined" density="comfortable"></v-text-field>
+            <v-text-field label="Username" prepend-inner-icon="mdi-account" clearable variant="outlined" density="comfortable"></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-select label="Position" :items="positions" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-select>
+            <v-text-field label="Email Address" prepend-inner-icon="mdi-email" clearable variant="outlined" density="comfortable"></v-text-field>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="6">
-            <v-text-field label="Password" prepend-inner-icon="mdi-lock" variant="outlined" density="comfortable"></v-text-field>
+            <v-text-field label="Phone Number" prepend-inner-icon="mdi-phone" clearable variant="outlined" density="comfortable"></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field label="Comfirm Password" prepend-inner-icon="mdi-lock" variant="outlined" density="comfortable"></v-text-field>
+            <v-select label="Position" chips :items="positions" clearable prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="6">
+            <v-text-field label="Password" prepend-inner-icon="mdi-lock" clearable variant="outlined" density="comfortable"></v-text-field>
+          </v-col>
+          <v-col cols="6">
+            <v-text-field label="Comfirm Password" prepend-inner-icon="mdi-lock" clearable  variant="outlined" density="comfortable"></v-text-field>
           </v-col>
         </v-row>
 
