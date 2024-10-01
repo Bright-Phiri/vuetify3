@@ -1,6 +1,9 @@
 <template>
   <div class="NavBar">
     <v-navigation-drawer
+      floating
+      rail
+      permanent
       image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
       theme="dark"
     >
@@ -11,8 +14,16 @@
           </template>
       </v-list-item>
       </v-list>
-       <v-list nav>
-          <v-list-item prepend-icon="mdi-home-outline" class="text-white" title="Home" to="/dashbaord"></v-list-item>
+       <v-list  nav>
+          <v-list-item prepend-icon="mdi-home-outline" class="text-white" title="Home" to="/dashbaord">
+            <template v-slot:append>
+              <v-btn size="small" icon variant="tonal">
+                <template v-slot:default>
+                  <v-icon icon="mdi-menu-down" color="white"></v-icon>
+                </template>
+              </v-btn>
+            </template>
+          </v-list-item>
           <v-list-item prepend-icon="mdi-view-grid" class="text-white" title="Projects" to="/projects">
             <template v-slot:append>
               <v-btn density="compact" color="white" icon variant="tonal">
