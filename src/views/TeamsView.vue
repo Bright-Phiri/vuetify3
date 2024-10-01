@@ -26,7 +26,7 @@
             <v-text-field label="Phone Number" prepend-inner-icon="mdi-phone" variant="outlined" density="comfortable"></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field label="Position" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-text-field>
+            <v-select label="Position" :items="positions" prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-select>
           </v-col>
         </v-row>
 
@@ -92,6 +92,13 @@ const filterMembers = () => {
     user.name.toLowerCase().includes(query)
   );
 };
+
+const positions = [
+  "Programmer",
+  "Software Developer",
+  "Systems Analsyst",
+  "Backend Developer"
+]
 
 const addMember = () => {
   toast.warning("Please enter all required fields", {
