@@ -42,7 +42,7 @@
       </v-card-text>
       <v-card-actions class="d-flex justify-end mb-2 mr-2">
         <v-btn color="black" variant="outlined" v-on:click="dialog = !dialog">Cancel</v-btn>
-        <v-btn color="primary" variant="outlined">Save</v-btn>
+        <v-btn color="primary" variant="outlined" v-on:click="addMember">Save</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -77,6 +77,8 @@
 
 <script setup>
 import { ref, onMounted, reactive } from 'vue';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 const users = reactive([]);
 const filteredUsers = ref([]); // Use ref for reactivity
@@ -90,6 +92,12 @@ const filterMembers = () => {
     user.name.toLowerCase().includes(query)
   );
 };
+
+const addMember = () => {
+  toast.warning("Please enter all required fields", {
+        autoClose: 2000,
+  });
+}
 
 onMounted(() => {
   setTimeout(() => {
