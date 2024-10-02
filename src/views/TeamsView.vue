@@ -1,5 +1,5 @@
 <template>
-  <v-dialog persistent v-model="dialog" :width="800" transition="fab-transition">
+  <v-dialog persistent v-model="dialog" :width="820" transition="fab-transition">
     <v-card>
       <v-card-title class="d-flex justify-space-between">Add New Team Member <v-icon v-on:click="dialog = !dialog" icon="mdi-close" ></v-icon></v-card-title>
       <v-card-text>

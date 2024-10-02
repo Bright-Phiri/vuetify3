@@ -2,7 +2,9 @@
   <div class="NavBar">
     <v-navigation-drawer
       floating
-    
+      :rail="rail"
+      permanent
+      @click="rail = false"
       image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
       theme="dark"
     >
@@ -70,6 +72,7 @@ export default {
   name: 'NavBar',
 
   data: () => ({
+    rail: true
   }),
 }
 </script>
