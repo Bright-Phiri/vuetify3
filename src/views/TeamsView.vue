@@ -23,10 +23,21 @@
 
         <v-row>
           <v-col cols="6">
-            <v-text-field label="Phone Number" prepend-inner-icon="mdi-phone" clearable variant="outlined" density="comfortable"></v-text-field>
+            <v-text-field label="Phone Number" prepend-inner-icon="mdi-phone" clearable-chip variant="outlined" density="comfortable"></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-select label="Position" chips :items="positions" clearable prepend-inner-icon="mdi-account" variant="outlined" density="comfortable"></v-select>
+            <v-autocomplete label="Position" chips :items="positions" item-title="name" item-value="value" clearable prepend-inner-icon="mdi-account" variant="outlined" density="comfortable">
+              <template v-slot:item="{props, item}">
+                <v-list-item v-bind="props" :prepend-avatar="item.raw.avatar" :title="item.raw.fullname" :subtitle="item.raw.name"></v-list-item>
+              </template>
+              <template v-slot:chip="{ props, item }">
+                <v-chip
+                  v-bind="props"
+                  :prepend-avatar="item.raw.avatar"
+                  :text="item.raw.name"
+                ></v-chip>
+              </template>
+            </v-autocomplete>
           </v-col>
         </v-row>
 
@@ -94,10 +105,10 @@ const filterMembers = () => {
 };
 
 const positions = [
-  "Programmer",
-  "Software Developer",
-  "Systems Analsyst",
-  "Backend Developer"
+  { name: 'Programmer', value: 'Programmer', avatar: './75846202.jpg', fullname: 'Bright' },
+  { name: 'Systems Developer', value: 'Systems Developer', avatar: './avatar.jpg', fullname: 'Brian' },
+  { name: 'Tester', value: 'Programmer', avatar: './75846202.jpg', fullname: 'James' },
+  { name: 'Coder', value: 'Systems Developer', avatar: './44230356.jpg', fullname: 'Jack' }
 ]
 
 const addMember = () => {

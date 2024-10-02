@@ -2,8 +2,7 @@
   <div class="NavBar">
     <v-navigation-drawer
       floating
-      rail
-      permanent
+    
       image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
       theme="dark"
     >
