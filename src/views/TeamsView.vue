@@ -96,6 +96,7 @@ const filteredUsers = ref([]); // Use ref for reactivity
 const search = ref("");
 const dialog = ref(false);
 const loading = ref(true);
+const count = ref(2);
 
 const filterMembers = () => {
   const query = search.value.toLowerCase();
@@ -118,6 +119,7 @@ const addMember = () => {
 }
 
 onMounted(() => {
+  console.log(count.value);
   setTimeout(() => {
     users.push(
       { name: "John Doe", avatar: "./75846202.jpg", username: "johndoe", email: "john@example.com", manager: "123-456-7890", phone: "Admin", status: "Active" },

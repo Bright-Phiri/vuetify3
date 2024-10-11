@@ -38,36 +38,41 @@
     </v-row>
   </template>
   
-  <script setup>
-  import { ref, onMounted, reactive } from 'vue';
-  
-  const headers = [
-    { title: "Project Name", align: "start", sortable: false, key: "name" },
+<script>
+ export default{
+  data() {
+    return {
+      headers: [
+      { title: "Project Name", align: "start", sortable: false, key: "name" },
     { title: "Manager", key: "manager" },
     { title: "Start Date", key: "startDate" },
     { title: "End Date", key: "endDate" },
     { title: "Status", key: "status" },
     { title: "Actions", key: "actions" },
-  ];
-  
-  const projects = reactive([]);
-  const search = ref("");
-  const loading = ref(true);
-  
-  onMounted(() => {
+      ],
+      projects:[],
+      search: "",
+      loading: true
+    }
+  },
+  methods: {
+
+  },
+  mounted() {
+    
     setTimeout(() => {
-      projects.push(
+      this.projects.push(
         { name: "Project Alpha", avatar: "./project1.jpg", manager: "John Doe", startDate: "2023-01-01", endDate: "2023-06-01", status: "Active" },
         { name: "Project Beta", avatar: "./project2.jpg", manager: "Jane Smith", startDate: "2023-02-15", endDate: "2023-07-15", status: "Inactive" },
         { name: "Project Gamma", avatar: "./project3.jpg", manager: "Alice Johnson", startDate: "2023-03-20", endDate: "2023-08-20", status: "Active" },
         { name: "Project Delta", avatar: "./project4.jpg", manager: "Bob Brown", startDate: "2023-04-25", endDate: "2023-09-25", status: "Inactive" }
       );
-      loading.value = false;
+      this.loading = false;
     }, 2000);
-  });
-  
-  </script>
-
+  }
+ }
+</script>
+ 
 <style scoped>
 .gradient-loader {
   background: linear-gradient(90deg, #FAC347, #FF5733); 
