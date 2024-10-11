@@ -29,7 +29,7 @@
 
         <v-tooltip text="Projects">
           <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" prepend-icon="mdi-view-grid" class="text-white" title="Projects" to="/projects">
+            <v-list-item class="text-white" title="Projects" to="/projects">
               <template v-slot:prepend>
             <v-icon v-bind="props" icon="mdi-view-grid"></v-icon>
           </template>
