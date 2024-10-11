@@ -121,13 +121,16 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "NavBar",
+<script >
+import { ref} from 'vue'
 
-  data: () => ({
-    rail: true,
-  }),
+export default {
+  setup() {
+    const rail = ref(true)
+    return{
+      rail
+    }
+  }
 };
 </script>
 
