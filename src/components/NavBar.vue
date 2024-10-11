@@ -1,13 +1,8 @@
 <template>
   <div class="NavBar">
-    <v-navigation-drawer
-      floating
-      :rail="rail"
-      permanent
-      @click="rail = false"
-      image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-      theme="dark"
-    >
+    <v-navigation-drawer floating :rail="rail" permanent @click="rail = false"
+      image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg" theme="dark">
+    
       <v-list class="mt-5">
         <v-list-item prepend-avatar="../logo1.png">
           <template v-slot:title>
@@ -15,69 +10,25 @@
           </template>
         </v-list-item>
       </v-list>
+
       <v-list nav>
-        <v-tooltip text="Dashboard">
+        <v-tooltip v-for="item in menuItems" :key="item.text" :text="item.text">
           <template v-slot:activator="{ props }">
-            <v-list-item class="text-white" title="Home" to="/dashbaord">
+            <v-list-item class="text-white" :title="item.text" :to="item.to">
               <template v-slot:prepend>
-                <v-icon v-bind="props" icon="mdi-home-outline"></v-icon>
+                <v-icon v-bind="props" :icon="item.icon"></v-icon>
               </template>
-              <template v-slot:append>
+              <template v-if="item.text === 'Dashboard'" v-slot:append>
                 <v-btn size="small" icon variant="tonal">
                   <template v-slot:default>
                     <v-icon icon="mdi-menu-down" color="white"></v-icon>
                   </template>
                 </v-btn>
               </template>
-            </v-list-item>
-          </template>
-        </v-tooltip>
-
-        <v-tooltip text="Projects">
-          <template v-slot:activator="{ props }">
-            <v-list-item class="text-white" title="Projects" to="/projects">
-              <template v-slot:prepend>
-                <v-icon v-bind="props" icon="mdi-view-grid"></v-icon>
-              </template>
-              <template v-slot:append>
+              <template v-else-if="item.text !== 'Dashboard' && item.text !== 'Team' && item.text !== 'Settings'" v-slot:append>
                 <v-btn density="compact" color="white" icon variant="tonal">
                   <v-icon icon="mdi-plus" size="14"></v-icon>
                 </v-btn>
-              </template>
-            </v-list-item>
-          </template>
-        </v-tooltip>
-
-        <v-tooltip text="Tasks">
-          <template v-slot:activator="{ props }">
-            <v-list-item class="text-white" title="Tasks" to="/tasks">
-              <template v-slot:prepend>
-                <v-icon v-bind="props" icon="mdi-format-list-checks"></v-icon>
-              </template>
-              <template v-slot:append>
-                <v-btn density="compact" color="white" icon variant="tonal">
-                  <v-icon icon="mdi-plus" size="14"></v-icon>
-                </v-btn>
-              </template>
-            </v-list-item>
-          </template>
-        </v-tooltip>
-
-        <v-tooltip text="Team">
-          <template v-slot:activator="{ props }">
-            <v-list-item class="text-white" title="Team" to="/team">
-              <template v-slot:prepend>
-                <v-icon v-bind="props" icon="mdi-dots-triangle"></v-icon>
-              </template>
-            </v-list-item>
-          </template>
-        </v-tooltip>
-
-        <v-tooltip text="Settings">
-          <template v-slot:activator="{ props }">
-            <v-list-item title="Settings" class="text-white" to="/settings">
-              <template v-slot:prepend>
-                <v-icon v-bind="props" icon="mdi-cog"></v-icon>
               </template>
             </v-list-item>
           </template>
@@ -85,18 +36,7 @@
       </v-list>
 
       <template v-slot:append>
-        <v-list-item
-          prepend-icon="mdi-information"
-          class="text-white"
-          title="Help & information"
-          to="/help"
-        ></v-list-item>
-        <v-list-item
-          class="mb-10 text-white"
-          prepend-icon="mdi-logout"
-          title="Log out"
-          to="/logout"
-        ></v-list-item>
+        <v-list-item v-for="item in additionalItems" :key="item.text" :prepend-icon="item.icon" class="text-white" :title="item.text" :to="item.to"></v-list-item>
       </template>
     </v-navigation-drawer>
 
@@ -104,31 +44,73 @@
       <v-app-bar-title>
         <div class="d-flex flex-column mx-10">
           <span class="text-h3 font-weight-light">Hello, Bright</span>
-          <span class="text-subtitle-2 font-weight-light"
-            >Track team progress here, You almost reach a goal</span
-          >
+          <span class="text-subtitle-2 font-weight-light">Track team progress here, You almost reach a goal</span>
         </div>
       </v-app-bar-title>
+
       <template v-slot:append>
         <span>16 May, 2023</span>
         <v-btn class="mx-3" icon="mdi-calendar" variant="tonal"></v-btn>
       </template>
     </v-app-bar>
-  
+
     <Transition name="slide-fade" mode="in-out">
       <router-view />
     </Transition>
   </div>
 </template>
 
-<script >
-import { ref} from 'vue'
+<script>
+import { ref } from 'vue'
 
 export default {
   setup() {
     const rail = ref(true)
-    return{
-      rail
+    const menuItems = [
+      {
+        text: "Dashboard",
+        icon: "mdi-home-outline",
+        to: "/dashbaord",
+      },
+      {
+        text: "Projects",
+        icon: "mdi-view-grid",
+        to: "/projects",
+      },
+      {
+        text: "Tasks",
+        icon: "mdi-format-list-checks",
+        to: "/tasks",
+      },
+      {
+        text: "Team",
+        icon: "mdi-dots-triangle",
+        to: "/team",
+      },
+      {
+        text: "Settings",
+        icon: "mdi-cog",
+        to: "/settings",
+      },
+    ];
+
+    const additionalItems = [
+      {
+        text: "Help & Information",
+        icon: "mdi-information",
+        to: "/help",
+      },
+      {
+        text: "Log Out",
+        icon: "mdi-logout",
+        to: "/logout",
+      },
+    ];
+  
+    return {
+      rail,
+      menuItems,
+      additionalItems
     }
   }
 };
