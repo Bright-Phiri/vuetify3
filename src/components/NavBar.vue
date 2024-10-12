@@ -8,7 +8,7 @@
          <v-divider></v-divider>
          <v-card-actions class="d-flex justify-end mb-2">
            <v-btn variant="outlined" class="text-capitalize px-3" color="black" rounded="xl" @click="logoutDialog = !logoutDialog">Close</v-btn>
-           <v-btn variant="flat" class="text-capitalize px-5" color="blue" rounded="xl">Logout</v-btn>
+           <v-btn variant="flat" class="text-capitalize px-5" color="blue" @click="logout" rounded="xl">Logout</v-btn>
          </v-card-actions>
        </v-card>
      </v-dialog>
@@ -55,7 +55,7 @@
 
 <script>
 import { ref } from 'vue'
-
+import router from '@/router';
 export default {
   setup() {
     const drawer = ref(null)
@@ -112,11 +112,16 @@ export default {
       logoutDialog.value = true
     }
 
+    const logout = ()=> {
+      router.push( { path: '/login' })
+    };
+
     return {
       drawer,
       menuItems,
       logoutDialog,
-      showLogoutDialog
+      showLogoutDialog,
+      logout
     }
   }
 };
