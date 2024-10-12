@@ -24,12 +24,28 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/TeamsView.vue')
       },
       {
-        path: '/dashbaorddd',
+        path: '/blocks',
+        name: 'blocks',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/BlocksListView.vue')
+      },
+      {
+        path: '/dashbaord',
         name: 'dashbaord',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/DashboardView.vue')
+      }, 
+      {
+        path: '/add_new_block',
+        name: 'add_new_block',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/AddNewBlockView.vue')
       },
       {
         path: '/projects',

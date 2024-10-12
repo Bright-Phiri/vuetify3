@@ -1,5 +1,5 @@
 <template>
-  <div class="About">
+  <div class="Dashboard">
     <v-row>
       <v-col cols="12">
         <div class="d-flex justify-space-between">
@@ -70,7 +70,7 @@
         <v-card variant="flat">
           <v-card-title class="text-subtitle-1 font-weight-light">De-registration</v-card-title>
           <v-card-text>
-
+            <div id="deRegistrationChart"></div>
           </v-card-text>
         </v-card>
       </v-col>
@@ -79,7 +79,43 @@
         <v-card variant="flat">
           <v-card-title class="text-subtitle-1 font-weight-light">Acquisition of EFD machine</v-card-title>
           <v-card-text>
+            <div id="efdMachineChart"></div>
+          </v-card-text>
+        </v-card>
+      </v-col>
 
+      <v-col cols="6">
+        <v-card>
+          <v-card-title class="text-subtitle-1 font-weight-light">EFD Clearance</v-card-title>
+          <v-card-text>
+            <div id="efdClearanceChart"></div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <v-col cols="6">
+        <v-card>
+          <v-card-title class="text-subtitle-1 font-weight-light">Enforcement of EFD Usage</v-card-title>
+          <v-card-text>
+            <div id="efdUsageEnforcementChart"></div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <v-col cols="6">
+        <v-card>
+          <v-card-title class="text-subtitle-1 font-weight-light">Incomplete Registration</v-card-title>
+          <v-card-text>
+            <div id="incompleRegistrationChart"></div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <v-col cols="6">
+        <v-card>
+          <v-card-title class="text-subtitle-1 font-weight-light">Issue of Open Price letter EFD Facility</v-card-title>
+          <v-card-text>
+            <div id="efdFacilityChart"></div>
           </v-card-text>
         </v-card>
       </v-col>
@@ -89,6 +125,8 @@
 
 
 <script setup>
+ import { onMounted } from 'vue';
+ import ApexCharts from 'apexcharts';
 
   const blocks = [
    'Limbe 1',
@@ -100,6 +138,74 @@
    'AHL Area',
    'Mataifa'
   ]
+
+  // Function to generate last 30 days for x-axis labels
+const getLast30Days = () => {
+  const dates = [];
+  const today = new Date();
+  for (let i = 29; i >= 0; i--) {
+    const date = new Date(today);
+    date.setDate(today.getDate() - i);
+    dates.push(date.toISOString().split('T')[0]); // Format: YYYY-MM-DD
+  }
+  return dates;
+};
+
+// ApexCharts options (generic) for all charts
+const chartOptions = (chartTitle) => ({
+  chart: {
+    type: 'line',
+    height: 350,
+    toolbar: { show: false },
+  },
+  xaxis: {
+    categories: getLast30Days(),
+    labels: { rotate: -45 },
+  },
+  yaxis: {
+    min: 0,
+    max: 10,
+    tickAmount: 10,
+  },
+  stroke: { width: 2 },
+  markers: { size: 4 },
+  dataLabels: { enabled: false },
+  grid: { borderColor: '#e7e7e7' },
+  series: [
+    {
+      name: chartTitle,
+      data: Array(30).fill(0), // Mock data
+    },
+  ],
+});
+
+// Function to initialize and render a chart
+const renderChart = (chartId, options) => {
+  const chart = new ApexCharts(document.querySelector(chartId), options);
+  chart.render();
+};
+
+onMounted(() => {
+  // Render each chart with its unique options
+
+  // De-registration chart
+  renderChart("#deRegistrationChart", chartOptions('De-registration'));
+
+  // Acquisition of EFD machine chart
+  renderChart("#efdMachineChart", chartOptions('Acquisition of EFD machine'));
+
+  // EFD Clearance chart
+  renderChart("#efdClearanceChart", chartOptions('EFD Clearance'));
+
+  // Enforcement of EFD Usage chart
+  renderChart("#efdUsageEnforcementChart", chartOptions('Enforcement of EFD Usage'));
+
+  // Incomplete Registration chart
+  renderChart("#incompleRegistrationChart", chartOptions('Incomplete Registration'));
+
+  // Issue of Open Price EFD facility chart
+  renderChart("#efdFacilityChart", chartOptions('Issue of Open Price letter EFD Facility'));
+});
 </script>
 
 <style scoped>

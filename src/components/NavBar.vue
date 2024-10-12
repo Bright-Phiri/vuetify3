@@ -57,7 +57,7 @@ export default {
       {
         text: "Block Info",
         icon: "mdi-information",
-        to: "/projects",
+        to: "/blocks",
       },
       {
         text: "Presumptive Tax",

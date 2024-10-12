@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main class="bg-grey-lighten-4">
+    <v-main class="custom-bg">
       <v-container fluid>
         <router-view/>
       </v-container>
@@ -20,3 +20,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.custom-bg {
+  background-color: #EBEEEF;
+}
+</style>
+
