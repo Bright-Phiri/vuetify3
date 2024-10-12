@@ -1,6 +1,17 @@
 <template>
   <div class="NavBar">
-
+     <v-dialog max-width="540" persistent v-model="logoutDialog">
+       <v-card>
+         <v-card-title class="d-flex justify-space-between text-h6 font-height-light">Log out <v-icon color="red" icon="mdi-close" @click="logoutDialog = !logoutDialog"></v-icon> </v-card-title>
+         <v-divider></v-divider>
+         <v-card-text>Are you sure you would like to logout?</v-card-text>
+         <v-divider></v-divider>
+         <v-card-actions class="d-flex justify-end mb-2">
+           <v-btn variant="outlined" class="text-capitalize px-3" color="black" rounded="xl" @click="logoutDialog = !logoutDialog">Close</v-btn>
+           <v-btn variant="flat" class="text-capitalize px-5" color="blue" rounded="xl">Logout</v-btn>
+         </v-card-actions>
+       </v-card>
+     </v-dialog>
     <v-app-bar flat color="#2D3541">
      <v-app-bar-nav-icon v-on:click="drawer = !drawer"></v-app-bar-nav-icon>
      <v-app-bar-title class="text-h7 font-weight-thin">Block Managment Information System</v-app-bar-title>
@@ -18,18 +29,18 @@
        <div class="d-flex">
          <v-icon class="mt-3" icon="mdi-account-circle"></v-icon>
          <span class="mt-3 ml-1">biphiri</span>
-         <v-btn icon="mdi-logout"></v-btn>
+         <v-btn icon="mdi-logout" @click="showLogoutDialog"></v-btn>
        </div>
      </template>
     </v-app-bar>
-    <v-navigation-drawer color="#395BB6" rail :rail-width="45" permanent>
+    <v-navigation-drawer color="#395BB6" rail :rail-width="45" permanent floating>
       <v-list>
         <v-list-item prepend-icon="mdi-magnify" to="/search"></v-list-item>
         <v-list-item prepend-icon="mdi-home-outline" to="/dashboard"></v-list-item>
       </v-list>
     </v-navigation-drawer>
   
-    <v-navigation-drawer :width="245" v-model="drawer">
+    <v-navigation-drawer :width="245" v-model="drawer" floating>
       <v-list nav>
         <v-list-item-subtitle class="mt-4">MAIN MENU</v-list-item-subtitle>
         <v-divider class="my-3"></v-divider>
@@ -48,6 +59,7 @@ import { ref } from 'vue'
 export default {
   setup() {
     const drawer = ref(null)
+    const logoutDialog = ref(false)
     const menuItems = [
       {
         text: "Dashboard",
@@ -77,7 +89,7 @@ export default {
       {
         text: "Block Cases",
         icon: "mdi-book-variant",
-        to: "/settings",
+        to: "/block_cases",
       },
       {
         text: "Check OTP",
@@ -96,9 +108,15 @@ export default {
       },
     ];
 
+    const showLogoutDialog = () => {
+      logoutDialog.value = true
+    }
+
     return {
       drawer,
       menuItems,
+      logoutDialog,
+      showLogoutDialog
     }
   }
 };

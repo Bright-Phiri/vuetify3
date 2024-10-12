@@ -19,7 +19,7 @@
           <v-card-text>
           <v-data-table :headers="headers" loading loading-text="Loading blocks...">
             <template v-slot:loader>
-              <v-progress-linear indeterminate color="blue" height="3"></v-progress-linear>
+              <v-progress-linear indeterminate color="teal" reverse height="3"></v-progress-linear>
             </template>
           </v-data-table>
         </v-card-text>
