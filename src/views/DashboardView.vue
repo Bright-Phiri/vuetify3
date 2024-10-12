@@ -14,7 +14,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" sm="12" md="6" xl="3" lg="3">
+      <v-col cols="6" sm="6" md="6" xl="3" lg="3">
         <v-card variant="flat" color="#87CEFA" rounded="lg">
           <v-card-text class="d-flex align-center">
             <v-icon icon="mdi-cash" size="x-large" color="white"></v-icon>
@@ -26,7 +26,7 @@
         </v-card>
       </v-col>
 
-      <v-col cols="12" sm="12" md="6" xl="3" lg="3">
+      <v-col cols="6" sm="6" md="6" xl="3" lg="3">
         <v-card border="dashed" variant="outlined" rounded="lg">
           <v-card-text class="d-flex align-center bg-grey-lighten-4">
             <v-icon icon="mdi-application" size="x-large"></v-icon>
@@ -38,7 +38,7 @@
         </v-card>
       </v-col>
 
-      <v-col cols="12" sm="12" md="6" xl="3" lg="3">
+      <v-col cols="6" sm="6" md="6" xl="3" lg="3">
         <v-card border="dashed" variant="outlined" rounded="lg">
           <v-card-text class="d-flex align-center bg-grey-lighten-4">
             <v-icon icon="mdi-account-multiple" size="x-large"></v-icon>
@@ -50,7 +50,7 @@
         </v-card>
       </v-col>
 
-      <v-col cols="12" sm="12" md="6" xl="3" lg="3">
+      <v-col cols="6" sm="6" md="6" xl="3" lg="3">
         <v-card rounded="lg" class="elevation-3">
           <v-card-text class="d-flex align-center">
             <v-icon icon="mdi-chart-sankey" size="x-large"></v-icon>
@@ -63,7 +63,26 @@
       </v-col>
     </v-row>
     <v-row>
-      <div class="d-flex ml-4">Open Case History (Last 30 Days)</div>
+     <v-col cols="12">
+      <div class="d-flex text-h6 font-weight-light">Open Case History (Last 30 Days)</div>
+     </v-col>
+      <v-col cols="6">
+        <v-card variant="flat">
+          <v-card-title class="text-subtitle-1 font-weight-light">De-registration</v-card-title>
+          <v-card-text>
+
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <v-col cols="6">
+        <v-card variant="flat">
+          <v-card-title class="text-subtitle-1 font-weight-light">Acquisition of EFD machine</v-card-title>
+          <v-card-text>
+
+          </v-card-text>
+        </v-card>
+      </v-col>
     </v-row>
   </div>
 </template>
