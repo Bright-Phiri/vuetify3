@@ -1,59 +1,41 @@
 <template>
   <div class="NavBar">
-    <v-navigation-drawer floating :rail="rail" permanent @click="rail = false"
-      image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg" theme="dark">
-    
-      <v-list class="mt-5">
-        <v-list-item prepend-avatar="../logo1.png">
-          <template v-slot:title>
-            <span class="text-h4 font-weight-bold text-white">TaskTrek</span>
-          </template>
-        </v-list-item>
-      </v-list>
 
-      <v-list nav>
-        <v-tooltip v-for="item in menuItems" :key="item.text" :text="item.text">
-          <template v-slot:activator="{ props }">
-            <v-list-item class="text-white" :title="item.text" :to="item.to">
-              <template v-slot:prepend>
-                <v-icon v-bind="props" :icon="item.icon"></v-icon>
-              </template>
-              <template v-if="item.text === 'Dashboard'" v-slot:append>
-                <v-btn size="small" icon variant="tonal">
-                  <template v-slot:default>
-                    <v-icon icon="mdi-menu-down" color="white"></v-icon>
-                  </template>
-                </v-btn>
-              </template>
-              <template v-else-if="item.text !== 'Dashboard' && item.text !== 'Team' && item.text !== 'Settings'" v-slot:append>
-                <v-btn density="compact" color="white" icon variant="tonal">
-                  <v-icon icon="mdi-plus" size="14"></v-icon>
-                </v-btn>
-              </template>
-            </v-list-item>
-          </template>
-        </v-tooltip>
-      </v-list>
-
-      <template v-slot:append>
-        <v-list-item v-for="item in additionalItems" :key="item.text" :prepend-icon="item.icon" class="text-white" :title="item.text" :to="item.to"></v-list-item>
-      </template>
-    </v-navigation-drawer>
-
-    <v-app-bar density="prominent" elevation="0">
-      <v-app-bar-title>
-        <div class="d-flex flex-column mx-10">
-          <span class="text-h3 font-weight-light">Hello, Bright</span>
-          <span class="text-subtitle-2 font-weight-light">Track team progress here, You almost reach a goal</span>
-        </div>
-      </v-app-bar-title>
-
-      <template v-slot:append>
-        <span>16 May, 2023</span>
-        <v-btn class="mx-3" icon="mdi-calendar" variant="tonal"></v-btn>
-      </template>
+    <v-app-bar flat color="#2D3541">
+     <v-app-bar-nav-icon v-on:click="drawer = !drawer"></v-app-bar-nav-icon>
+     <v-app-bar-title class="text-h7 font-weight-thin">Block Managment Information System</v-app-bar-title>
+     <v-text-field
+        v-model="searchText"
+        class="ml-10 mt-5 text-white"
+        placeholder="Enter ID. i.e Block ID or TPIN"
+        variant="outlined"
+        density="compact"
+        size="small"
+        append-inner-icon="mdi-magnify"
+      ></v-text-field>
+      <v-spacer></v-spacer>
+     <template v-slot:append>
+       <div class="d-flex">
+         <v-icon class="mt-3" icon="mdi-account-circle"></v-icon>
+         <span class="mt-3 ml-1">biphiri</span>
+         <v-btn icon="mdi-logout"></v-btn>
+       </div>
+     </template>
     </v-app-bar>
-
+    <v-navigation-drawer color="#395BB6" rail :rail-width="45" permanent>
+      <v-list>
+        <v-list-item prepend-icon="mdi-magnify" to="/search"></v-list-item>
+        <v-list-item prepend-icon="mdi-home-outline" to="/dashboard"></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  
+    <v-navigation-drawer :width="245" v-model="drawer">
+      <v-list nav>
+        <v-list-item-subtitle class="mt-4">MAIN MENU</v-list-item-subtitle>
+        <v-divider class="my-3"></v-divider>
+        <v-list-item v-for="item in menuItems" :key="item.text" :prepend-icon="item.icon" :title="item.text" :to="item.to"></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     <Transition name="slide-fade" mode="in-out">
       <router-view />
     </Transition>
@@ -65,7 +47,7 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    const rail = ref(true)
+    const drawer = ref(null)
     const menuItems = [
       {
         text: "Dashboard",
@@ -73,44 +55,50 @@ export default {
         to: "/dashbaord",
       },
       {
-        text: "Projects",
-        icon: "mdi-view-grid",
+        text: "Block Info",
+        icon: "mdi-information",
         to: "/projects",
       },
       {
-        text: "Tasks",
-        icon: "mdi-format-list-checks",
+        text: "Presumptive Tax",
+        icon: "mdi-pipe-wrench",
         to: "/tasks",
       },
       {
-        text: "Team",
-        icon: "mdi-dots-triangle",
+        text: "Taxpayer Assessment",
+        icon: "mdi-magnify",
         to: "/team",
       },
       {
-        text: "Settings",
-        icon: "mdi-cog",
+        text: "Reports",
+        icon: "mdi-poll",
+        to: "/settings",
+      },
+      {
+        text: "Block Cases",
+        icon: "mdi-book-variant",
+        to: "/settings",
+      },
+      {
+        text: "Check OTP",
+        icon: "mdi-check-circle",
+        to: "/settings",
+      },
+      {
+        text: "Check Id- Print Queu",
+        icon: "mdi-checkbox-marked",
+        to: "/settings",
+      },
+      {
+        text: "Check ID Status",
+        icon: "mdi-checkbox-marked",
         to: "/settings",
       },
     ];
 
-    const additionalItems = [
-      {
-        text: "Help & Information",
-        icon: "mdi-information",
-        to: "/help",
-      },
-      {
-        text: "Log Out",
-        icon: "mdi-logout",
-        to: "/logout",
-      },
-    ];
-  
     return {
-      rail,
+      drawer,
       menuItems,
-      additionalItems
     }
   }
 };

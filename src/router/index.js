@@ -24,7 +24,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/TeamsView.vue')
       },
       {
-        path: '/dashbaord',
+        path: '/dashbaorddd',
         name: 'dashbaord',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
