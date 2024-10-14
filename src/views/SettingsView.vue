@@ -77,8 +77,8 @@
 <script>
   import { ref, computed, reactive, onMounted } from "vue";
 
-  export default{
-    setup(){
+  export default {
+    setup() {
       const number = ref(10)
       const data = reactive(
         {
