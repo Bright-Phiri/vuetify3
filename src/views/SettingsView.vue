@@ -49,22 +49,19 @@
         <v-card-text>
           <v-row class="mt-4">
             <v-col cols="12">
-              <v-text-field label="Old Password" variant="outlined" density="compact"
-              prepend-inner-icon="mdi-lock"></v-text-field>
+              <v-text-field label="Old Password" variant="outlined" density="compact" prepend-inner-icon="mdi-lock"></v-text-field>
             </v-col>
           </v-row>
          
           <v-row class="mt-4">
             <v-col cols="12">
-              <v-text-field label="New Password" variant="outlined" density="compact"
-              prepend-inner-icon="mdi-lock"></v-text-field>
+              <v-text-field label="New Password" variant="outlined" density="compact" prepend-inner-icon="mdi-lock"></v-text-field>
             </v-col>
           </v-row>
           
           <v-row class="mt-4">
             <v-col cols="12">
-              <v-text-field label="Confirm New Password" variant="outlined" density="compact"
-              prepend-inner-icon="mdi-lock"></v-text-field>
+              <v-text-field label="Confirm New Password" variant="outlined" density="compact" prepend-inner-icon="mdi-lock"></v-text-field>
             </v-col>
           </v-row>
         </v-card-text>
