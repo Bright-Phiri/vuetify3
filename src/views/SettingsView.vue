@@ -2,14 +2,18 @@
   <v-row class="px-12">
     <v-col cols="8">
       <v-card elevation="2">
-        <v-card-title>Personal Information</v-card-title>
+        <v-card-title>
+          Personal Information
+        </v-card-title>
         <v-card-text>
           <v-row class="mt-4">
             <v-col cols="6">
-              <v-text-field label="First Name" variant="outlined" density="compact" prepend-inner-icon="mdi-account"></v-text-field>
+              <v-text-field label="First Name" variant="outlined" density="compact"
+              prepend-inner-icon="mdi-account"></v-text-field>
             </v-col>
             <v-col cols="6">
-              <v-text-field label="Last Name" variant="outlined" density="compact" prepend-inner-icon="mdi-account"></v-text-field>
+              <v-text-field label="Last Name" variant="outlined" density="compact"
+              prepend-inner-icon="mdi-account"></v-text-field>
             </v-col>
           </v-row>
 
