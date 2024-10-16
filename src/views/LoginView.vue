@@ -20,32 +20,12 @@
       </v-col>
       <v-col cols="3" class="bg-blue pt-20" style="height: 100vh;">
         <v-carousel cycle :show-arrows="false" hide-delimiter-background>
-          <v-carousel-item>
-            <img src="/login-slide1.png" alt="Slide 1" class="carousel-image" />
+          <v-carousel-item v-for="item in carouselData" :key="item.slide">
+            <img :src="item.image" :alt="item.slide" class="carousel-image" />
             <v-row class="d-flex justify-center mt-4">
               <v-col class="text-center">
-                <h2>What is BMS</h2>
-                <p>A new admistration technique to capture the informal sectore into the tax net</p>
-              </v-col>
-            </v-row>
-          </v-carousel-item>
-
-          <v-carousel-item>
-            <img src="/login-slide2.png" alt="Slide 2" class="carousel-image" />
-            <v-row class="d-flex justify-center mt-4">
-              <v-col class="text-center">
-                <h2>What is BMS</h2>
-                <p>This is an automated system designed to aid in activities introduced by BMS.</p>
-              </v-col>
-            </v-row>
-          </v-carousel-item>
-
-          <v-carousel-item>
-            <img src="/login-slide3.png" alt="Slide 3" class="carousel-image" />
-            <v-row class="d-flex justify-center mt-4">
-              <v-col class="text-center">
-                <h2>Support</h2>
-                <p>Please contact ICT Support for any assistance</p>
+                <h2>{{ item.heading }}</h2>
+                <p> {{ item.decription }}</p>
               </v-col>
             </v-row>
           </v-carousel-item>
@@ -66,6 +46,11 @@ const user = ref({
   username: '',
   password: ''
 })
+const carouselData = [
+  { image: '/login-slide1.png', slide: 'slide 1', heading: 'What is BMS', decription: 'A new admistration technique to capture the informal sectore into the tax net' },
+  { image: '/login-slide2.png', slide: 'slide 2', heading: 'What is BMS', decription: 'This is an automated system designed to aid in activities introduced by BMS.' },
+  { image: '/login-slide3.png', slide: 'slide 3', heading: 'Support', decription: 'Please contact ICT Support for any assistance' }
+]
 const signIn = ()=> {
   if (!user.value.username || !user.value.password) {
     toast.warning("Please enter all required fields", {
