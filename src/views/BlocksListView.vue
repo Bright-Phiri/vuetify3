@@ -14,7 +14,7 @@
 
       <v-col cols="12">
         <v-card>
-          <v-card-title class="text-h6 font-weight-light d-flex justify-space-between">Block Management<v-icon icon="mdi-focus-field-horizontal" size="small"></v-icon> </v-card-title>
+          <v-card-title class="text-h6 font-weight-light d-flex justify-space-between">Block Management<v-icon icon="mdi-focus-field-horizontal" size="small" @click="drawer = !drawer"></v-icon> </v-card-title>
           <v-card-subtitle>List of all block registered in the system</v-card-subtitle>
           <v-card-text>
           <v-data-table :headers="headers" loading loading-text="Loading blocks...">
@@ -30,6 +30,7 @@
 </template>
 
 <script setup>
+import { inject } from "vue";
 import router from "../router";
   const headers = [
   { title: "Block Id", key: "block_id" },
@@ -39,6 +40,8 @@ import router from "../router";
   { title: "Taxpayers", key: "taxpayers" },
   { title: "Action", key: "action" },
 ];
+
+const drawer = inject('drawerState');
 
 
 const loadAddNewBlockView = ()=> {

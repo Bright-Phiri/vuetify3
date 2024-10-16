@@ -36,7 +36,7 @@
     <v-navigation-drawer color="#395BB6" rail :rail-width="45" permanent floating>
       <v-list>
         <v-list-item prepend-icon="mdi-magnify" to="/search"></v-list-item>
-        <v-list-item prepend-icon="mdi-home-outline" to="/dashboard"></v-list-item>
+        <v-list-item prepend-icon="mdi-home-outline" to="/dashbaord"></v-list-item>
       </v-list>
     </v-navigation-drawer>
   
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, provide } from 'vue'
 import router from '@/router';
 export default {
   setup() {
@@ -107,6 +107,7 @@ export default {
         to: "/settings",
       },
     ];
+    provide('drawerState', drawer);
 
     const showLogoutDialog = () => {
       logoutDialog.value = true

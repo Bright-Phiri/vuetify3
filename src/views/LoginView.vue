@@ -3,14 +3,14 @@
     <v-row justify="center" align="center" class="bg-white" style="height: 100vh;">
       <v-col cols="9" class="d-flex align-center justify-center">
         <v-col cols="12">
-          <v-card class="mx-auto elevation-0" elevation="8" max-width="350" rounded="xl" border variant="outlined">
+          <v-card class="mx-auto elevation-0" elevation="8" max-width="350" rounded="xl" border="sm" variant="outlined">
             <v-card-title class="text-blue text-h5 text-center font-weight-light mt-6">BMS</v-card-title>
             <v-card-text class="text-center py-10">
               <span class="text-h5 font-weight-light mt-15">Login to your account</span>
               <v-text-field prepend-inner-icon="mdi-account" class="mt-6" variant="outlined" label="Username"
                 density="compact" v-model="user.username"></v-text-field>
               <v-text-field prepend-inner-icon="mdi-lock-open" type="password" variant="outlined" label="Password"
-                density="compact" v-model="user.password"></v-text-field>
+                density="compact" v-model="user.password" v-on:keyup.enter="login"></v-text-field>
               <v-btn color="blue" :loading="signInloading" @click="signIn" lass="font-weight-light" variant="flat" block>Login</v-btn>
               <span class="mt-4 text-subtitle-1 font-weight-light">Link to ICT - Helpdesk <span
                   class="text-blue">Helpdesk</span> </span>
@@ -52,6 +52,20 @@ const carouselData = [
   { image: '/login-slide3.png', slide: 'slide 3', heading: 'Support', decription: 'Please contact ICT Support for any assistance' }
 ]
 const signIn = ()=> {
+  if (!user.value.username || !user.value.password) {
+    toast.warning("Please enter all required fields", {
+        autoClose: 2000,
+  });
+    return;
+  }
+  signInloading.value = true
+  setTimeout(()=>{
+    router.push({path: '/'})
+    signInloading.value = false
+  },3000)
+}
+
+const login = ()=> {
   if (!user.value.username || !user.value.password) {
     toast.warning("Please enter all required fields", {
         autoClose: 2000,

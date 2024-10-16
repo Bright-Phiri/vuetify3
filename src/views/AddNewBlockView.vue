@@ -18,7 +18,7 @@
       <v-col cols="12">
         <v-card>
           <v-card-title class="text-h6 font-weight-light d-flex justify-space-between">Add New Block <v-icon
-              icon="mdi-focus-field-horizontal" size="small"></v-icon></v-card-title>
+              @click="drawer = !drawer" icon="mdi-focus-field-horizontal" size="small"></v-icon></v-card-title>
           <v-card-subtitle>Enter details belows to add a new block</v-card-subtitle>
           <v-card-text>
             <v-row dense>
@@ -56,6 +56,7 @@
 </template>
 
 <script setup>
+import { inject } from 'vue';
 const parentBlocks = [
   "Limbe 1",
   "Limbe 2",
@@ -95,6 +96,8 @@ const taxOffices = [
   { OfficeCode: "SAL", OfficeName: "Salima" },
   { OfficeCode: "ZA", OfficeName: "Zomba" },
 ];
+
+const drawer = inject('drawerState');
 </script>
 
 <style scoped></style>

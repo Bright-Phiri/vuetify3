@@ -12,7 +12,7 @@
   
         <v-col cols="12">
           <v-card>
-            <v-card-title class="text-h6 font-weight-light d-flex justify-space-between">Case List<v-icon icon="mdi-focus-field-horizontal" size="small"></v-icon> </v-card-title>
+            <v-card-title class="text-h6 font-weight-light d-flex justify-space-between">Case List<v-icon @click="drawer = !drawer" icon="mdi-focus-field-horizontal" size="small"></v-icon> </v-card-title>
             <v-card-subtitle>List of all cases opened in your block</v-card-subtitle>
             <v-card-text>
             <v-data-table :headers="headers" loading loading-text="Loading block cases...">
@@ -28,6 +28,7 @@
   </template>
   
   <script setup>
+  import { inject } from 'vue';
     const headers = [
     { title: "Case Type", key: "case_type" },
     { title: "Status", key: "status" },
@@ -37,6 +38,7 @@
     { title: "Supervisor", key: "claimed_by" },
     { title: "", key: "action" },
   ];
+  const drawer = inject('drawerState');
   
 
   
