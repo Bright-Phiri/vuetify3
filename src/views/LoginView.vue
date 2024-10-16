@@ -3,7 +3,7 @@
     <v-row justify="center" align="center" class="bg-white" style="height: 100vh;">
       <v-col cols="9" class="d-flex align-center justify-center">
         <v-col cols="12">
-          <v-card class="mx-auto elevation-0" elevation="8" max-width="390" rounded="xl" border variant="outlined">
+          <v-card class="mx-auto elevation-0" elevation="8" max-width="350" rounded="xl" border variant="outlined">
             <v-card-title class="text-blue text-h5 text-center font-weight-light mt-6">BMS</v-card-title>
             <v-card-text class="text-center py-10">
               <span class="text-h5 font-weight-light mt-15">Login to your account</span>
