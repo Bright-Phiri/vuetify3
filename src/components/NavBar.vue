@@ -14,9 +14,9 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-app-bar flat color="#2D3541">
+    <v-app-bar flat color="#2D3541" height="58">
       <v-app-bar-nav-icon v-on:click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-app-bar-title class="text-h7 font-weight-thin">Block Managment Information System</v-app-bar-title>
+      <v-app-bar-title class="text-h7 font-weight-thin"><RouterLink class="text-decoration-none text-white" to="/dashbaord">Block Managment Information System</RouterLink></v-app-bar-title>
       <v-text-field v-model="searchText" class="ml-10 mt-5 text-white" placeholder="Enter ID. i.e Block ID or TPIN"
         variant="outlined" density="compact" size="small" append-inner-icon="mdi-magnify"></v-text-field>
       <v-spacer></v-spacer>
@@ -24,13 +24,13 @@
         <div class="d-flex">
           <v-icon class="mt-3" icon="mdi-account-circle"></v-icon>
           <span class="mt-3 ml-1">biphiri</span>
-          <v-btn icon="mdi-logout" @click="showLogoutDialog"></v-btn>
+          <v-btn size="small" class="mt-1" icon="mdi-logout" @click="showLogoutDialog"></v-btn>
         </div>
       </template>
     </v-app-bar>
     <v-navigation-drawer color="#395BB6" rail :rail-width="45" permanent floating>
       <v-list>
-        <v-list-item prepend-icon="mdi-magnify" to="/search"></v-list-item>
+        <v-list-item prepend-icon="mdi-magnify" to="/search_block_taxpayer"></v-list-item>
         <v-list-item prepend-icon="mdi-home-outline" to="/dashbaord"></v-list-item>
       </v-list>
     </v-navigation-drawer>
